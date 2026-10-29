@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react';
 import { profile } from '../content';
 import StickerBanner from './Stickers';
-import { ArrowUpRight, CalendarIcon, Chart, FileIcon, LinkedIn } from './Icons';
+import { ArrowUpRight, CalendarIcon, FileIcon, LinkedIn } from './Icons';
+
+const facts = [
+  { value: '10 yrs', label: 'experience' },
+  { value: '$1.0M → $1.3M', label: 'ARR growth' },
+  { value: '80%+', label: 'gross retention' },
+  { value: 'Salesforce', label: '+ MuleSoft' },
+  { value: 'US / UK', label: 'hours overlap' },
+];
 
 function useLocalTime() {
   const [time, setTime] = useState('');
@@ -20,14 +28,6 @@ function useLocalTime() {
     return () => clearInterval(id);
   }, []);
   return time;
-}
-
-function Inline({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="mx-0.5 inline-flex translate-y-[1px] items-center rounded-md border border-line bg-line/30 px-1.5 py-0.5 align-baseline">
-      {children}
-    </span>
-  );
 }
 
 export default function Hero() {
@@ -53,22 +53,25 @@ export default function Hero() {
         {profile.role} · {profile.roleLine}
       </p>
 
-      <div className="mt-4 max-w-[58ch] space-y-2.5 text-[14.5px] leading-[1.72] text-muted sm:text-[15px]">
-        <p>
-          I run post-sales for a{' '}
-          <strong className="font-medium text-ink">$1M+ ARR Salesforce &amp; MuleSoft portfolio</strong> at
-          NTT DATA North America — and I’m in the room from first discovery to renewal.
-        </p>
-        <p>
-          I turn adoption telemetry into executive QBRs
-          <Inline>
-            <Chart className="mr-1 h-3 w-3" />
-            <span className="mono text-[9.5px] uppercase tracking-[0.06em]">QBR</span>
-          </Inline>{' '}
-          that protect renewals and open expansion —{' '}
-          <strong className="font-medium text-ink">+30% ARR, 80%+ gross retention</strong>.
-        </p>
-      </div>
+      <p className="mt-4 max-w-[44ch] text-[17px] font-medium leading-[1.45] tracking-[-0.012em] text-ink sm:text-[18px]">
+        I keep $1M+ enterprise SaaS portfolios renewing and growing.
+      </p>
+      <p className="mt-1.5 max-w-[54ch] text-[13.5px] leading-[1.6] text-muted">
+        Engineer by training — I diagnose the integration before I sell the change order.
+      </p>
+
+      <dl className="mt-4 grid grid-cols-2 gap-x-3 gap-y-3 border-y border-dashed border-line py-3 sm:grid-cols-5">
+        {facts.map((f) => (
+          <div key={f.label} className="min-w-0">
+            <dt className="mono text-[11.5px] font-medium leading-tight tracking-[-0.01em] text-ink">
+              {f.value}
+            </dt>
+            <dd className="mt-0.5 text-[9px] uppercase leading-tight tracking-[0.1em] text-faint">
+              {f.label}
+            </dd>
+          </div>
+        ))}
+      </dl>
 
       <div className="mt-5 flex flex-wrap items-center gap-2.5">
         <a

@@ -45,13 +45,13 @@ export const roles: Role[] = [
     company: 'NTT DATA North America',
     role: 'Client Partner & Customer Success Manager',
     tag: '$1M ARR portfolio · US accounts',
-    impact: '+30% ARR · 80%+ GRR · $1M book',
+    impact: '$1.0M → $1.3M ARR · 80%+ GRR',
     years: '2022 — Present',
     summary:
       'Dual mandate across delivery governance and commercial growth for a $1M ARR Salesforce & MuleSoft enterprise portfolio spanning North American REITs, Fortune 500 consumer goods, InsurTech, wealth management and retail.',
     bullets: [
       'Co-owned the early-stage cycle with the account executive — discovery, solution framing, SOW and commercial structuring — then carried the same accounts through delivery and expansion.',
-      'Expanded account ARR by 30% through consultative upselling, multi-year extensions, and adjacent MuleSoft API integration change orders across North American enterprise accounts.',
+      'Expanded the portfolio from $1.0M to $1.3M ARR through consultative upselling, multi-year extensions and adjacent MuleSoft integration change orders.',
       'Sustained an 80%+ gross retention baseline across multi-year contracts, steering executive committees with client VPs, CIOs and Enterprise Architects.',
       'Closed tight feedback loops between US enterprise stakeholders and technical delivery squads to mitigate implementation risk early.',
     ],
@@ -183,7 +183,7 @@ export const advisory: Advisory[] = [
     clients: ['Bangalore Airport (BIAL)', 'Amazon SmartBiz', 'SBI MF — InvesTap NXT', 'Seclore', 'Times Network'],
     stats: [
       { k: '5', v: 'Marquee logos' },
-      { k: 'Target exceeded', v: 'Sales & retention' },
+      { k: 'Full-cycle', v: 'Sales + retention' },
       { k: 'Design ↔ dev', v: 'Cross-squad flow' },
     ],
     problem:
@@ -280,7 +280,7 @@ export const metrics = [
   {
     k: '+30%',
     v: 'ARR expansion',
-    note: 'NTT DATA North America portfolio',
+    note: '$1.0M → $1.3M at NTT DATA',
   },
   {
     k: '80%+',
@@ -292,13 +292,6 @@ export const metrics = [
     v: 'Faster onboarding',
     note: 'Across 25+ enterprise accounts',
   },
-];
-
-export const stackTable = [
-  { label: 'CRM & middleware', items: ['Salesforce', 'MuleSoft', 'HubSpot'] },
-  { label: 'Customer success', items: ['Health scoring', 'QBR cadence'] },
-  { label: 'Applied AI', items: ['LLM synthesis', 'Churn signals'] },
-  { label: 'Commercial', items: ['SOW & change orders'] },
 ];
 
 export const certifications = [

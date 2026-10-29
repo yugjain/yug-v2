@@ -1,4 +1,4 @@
-import { certifications, metrics, stackTable, testimonials } from '../content';
+import { certifications, metrics, testimonials } from '../content';
 import Marginalia from './Marginalia';
 import Reveal from './Reveal';
 import Section from './Section';
@@ -45,29 +45,6 @@ export default function Proof() {
             </Reveal>
           ))}
         </div>
-      </div>
-
-      <div className="mt-7">
-        <p className="eyebrow mb-3">Tooling</p>
-        <ul className="divide-y divide-dashed divide-line border-y border-dashed border-line">
-          {stackTable.map((row) => (
-            <li key={row.label} className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-2">
-              <span className="mono w-[128px] shrink-0 text-[9.5px] uppercase tracking-[0.1em] text-faint">
-                {row.label}
-              </span>
-              <span className="flex flex-wrap gap-1.5">
-                {row.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-md border border-dashed border-line px-2 py-0.5 text-[11px] text-muted"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </span>
-            </li>
-          ))}
-        </ul>
       </div>
 
       <div className="mt-6">

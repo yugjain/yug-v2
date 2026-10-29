@@ -16,19 +16,18 @@ export default function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={`section-rule relative px-5 py-8 sm:px-7 sm:py-9 ${className}`}>
-      <div className="mb-5 flex items-baseline justify-between gap-4">
-        <div>
-          <span className="eyebrow">{eyebrow}</span>
-          {title && <h2 className="section-title mt-1.5">{title}</h2>}
-        </div>
-        {hint && (
-          <span className="mono hidden shrink-0 text-[10.5px] uppercase tracking-[0.12em] text-faint sm:block">
-            {hint}
-          </span>
-        )}
+    <section id={id} className={`relative ${className}`}>
+      <div className="flex items-center justify-between gap-4 border-y border-dashed border-line bg-line/35 px-5 py-2 sm:px-7">
+        <h2 className="flex items-center gap-2 text-[16.5px] font-semibold tracking-[-0.012em] text-ink">
+          <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-accent" />
+          {title ?? eyebrow}
+        </h2>
+        <span className="mono hidden shrink-0 text-[9px] uppercase tracking-[0.14em] text-faint sm:block">
+          {eyebrow}
+          {hint ? ` · ${hint}` : ''}
+        </span>
       </div>
-      {children}
+      <div className="px-5 pb-8 pt-5 sm:px-7">{children}</div>
     </section>
   );
 }

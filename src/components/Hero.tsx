@@ -90,15 +90,26 @@ export default function Hero() {
           Book 15 min
           <ArrowUpRight className="h-3 w-3" />
         </a>
-        <a
-          href={profile.resume}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[13px] text-ink transition-colors hover:border-ink/40 hover:bg-line/40"
-        >
-          <FileIcon className="h-3.5 w-3.5" />
-          Résumé
-        </a>
+        {profile.resumeEnabled ? (
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[13px] text-ink transition-colors hover:border-ink/40 hover:bg-line/40"
+          >
+            <FileIcon className="h-3.5 w-3.5" />
+            Résumé
+          </a>
+        ) : (
+          <button
+            type="button"
+            aria-disabled="true"
+            className="inline-flex cursor-default items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[13px] text-ink select-none"
+          >
+            <FileIcon className="h-3.5 w-3.5" />
+            Résumé
+          </button>
+        )}
         <a
           href={profile.linkedin}
           target="_blank"

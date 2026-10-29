@@ -9,6 +9,8 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/yugjain',
   calendar: 'https://calendar.app.google/3yNWBXCxBVos8ufr8',
   resume: `${BASE}Yug-Jain-Executive-Resume.pdf`,
+  /** Set true to re-enable the résumé download links. */
+  resumeEnabled: false,
   avatar: `${BASE}yug-avatar.webp`,
   status: ['Pre-sales → delivery → expansion', 'Open to US · UK · Ireland', 'Remote & relocation ready'],
 };
@@ -432,7 +434,13 @@ export const elsewhere = [
   { label: 'LinkedIn', handle: '/in/yugjain', href: profile.linkedin, icon: 'linkedin' },
   { label: 'Email', handle: 'yugrjain@gmail.com', href: `mailto:${profile.email}`, icon: 'mail' },
   { label: 'Book 15 minutes', handle: 'Google Calendar', href: profile.calendar, icon: 'calendar' },
-  { label: 'Résumé', handle: 'PDF · 2 pages', href: profile.resume, icon: 'file' },
+  {
+    label: 'Résumé',
+    handle: profile.resumeEnabled ? 'PDF · 2 pages' : 'PDF · on request',
+    href: profile.resume,
+    icon: 'file',
+    disabled: !profile.resumeEnabled,
+  },
 ];
 
 /* Silent pattern player — the fingerstyle figure, no audio. */

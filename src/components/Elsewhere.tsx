@@ -23,6 +23,32 @@ export default function Elsewhere() {
       <div className="mt-4 grid gap-2 sm:grid-cols-2">
         {elsewhere.map((item, i) => {
           const Icon = icons[item.icon as keyof typeof icons];
+          const inner = (
+            <>
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-dashed border-line text-muted transition-colors group-hover:border-ink/30 group-hover:text-ink">
+                <Icon className="h-3.5 w-3.5" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[12.5px] font-medium text-ink">{item.label}</span>
+                <span className="mono block truncate text-[10px] text-faint">{item.handle}</span>
+              </span>
+              <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </>
+          );
+
+          if (item.disabled) {
+            return (
+              <Reveal key={item.label} delay={i * 50}>
+                <div
+                  aria-disabled="true"
+                  className="card group flex cursor-default items-center gap-3 px-3.5 py-3 select-none opacity-70"
+                >
+                  {inner}
+                </div>
+              </Reveal>
+            );
+          }
+
           return (
             <Reveal key={item.label} delay={i * 50}>
               <a
@@ -31,14 +57,7 @@ export default function Elsewhere() {
                 rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
                 className="card group flex items-center gap-3 px-3.5 py-3 transition-colors hover:bg-line/30"
               >
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-dashed border-line text-muted transition-colors group-hover:border-ink/30 group-hover:text-ink">
-                  <Icon className="h-3.5 w-3.5" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-[12.5px] font-medium text-ink">{item.label}</span>
-                  <span className="mono block truncate text-[10px] text-faint">{item.handle}</span>
-                </span>
-                <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                {inner}
               </a>
             </Reveal>
           );
@@ -49,9 +68,13 @@ export default function Elsewhere() {
         <a href={`mailto:${profile.email}`} className="link">
           {profile.email}
         </a>
-        <a href={profile.resume} target="_blank" rel="noreferrer" className="link">
-          Full résumé (PDF)
-        </a>
+        {profile.resumeEnabled ? (
+          <a href={profile.resume} target="_blank" rel="noreferrer" className="link">
+            Full résumé (PDF)
+          </a>
+        ) : (
+          <span className="text-faint select-none">Full résumé (PDF) · on request</span>
+        )}
         <a href={profile.calendar} target="_blank" rel="noreferrer" className="link">
           Book 15 minutes
         </a>

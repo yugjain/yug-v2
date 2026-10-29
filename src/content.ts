@@ -3,18 +3,26 @@ export const BASE = import.meta.env.BASE_URL;
 export const profile = {
   name: 'Yug Jain',
   role: 'Enterprise Client Partner',
-  roleLine: 'Post-sales governance & net revenue expansion',
+  roleLine: 'pre-sales through renewal',
   location: 'Mumbai, India',
   email: 'yugrjain@gmail.com',
   linkedin: 'https://www.linkedin.com/in/yugjain',
   calendar: 'https://calendar.app.google/3yNWBXCxBVos8ufr8',
   resume: `${BASE}Yug-Jain-Executive-Resume.pdf`,
   avatar: `${BASE}yug-avatar.webp`,
-  status: [
-    'Open to US · UK · Ireland roles',
-    'Remote & relocation ready',
-    'US EST ↔ UK GMT overlap daily',
-  ],
+  status: ['Pre-sales → delivery → expansion', 'Open to US · UK · Ireland', 'Remote & relocation ready'],
+};
+
+export const quotes = {
+  closing: {
+    text: 'The purpose of computing is insight, not numbers.',
+    who: 'Richard Hamming',
+    source: 'Numerical Methods for Scientists and Engineers, 1962',
+  },
+  synthesizer: {
+    text: 'Simplicity is prerequisite for reliability.',
+    who: 'Edsger W. Dijkstra',
+  },
 };
 
 export type Role = {
@@ -38,6 +46,7 @@ export const roles: Role[] = [
     summary:
       'Dual mandate across delivery governance and commercial growth for a $1M ARR Salesforce & MuleSoft enterprise portfolio spanning North American REITs, Fortune 500 consumer goods, InsurTech, wealth management and retail.',
     bullets: [
+      'Co-owned the early-stage cycle with the account executive — discovery, solution framing, SOW and commercial structuring — then carried the same accounts through delivery and expansion.',
       'Expanded account ARR by 30% through consultative upselling, multi-year extensions, and adjacent MuleSoft API integration change orders across North American enterprise accounts.',
       'Sustained an 80%+ gross retention baseline across multi-year contracts, steering executive committees with client VPs, CIOs and Enterprise Architects.',
       'Closed tight feedback loops between US enterprise stakeholders and technical delivery squads to mitigate implementation risk early.',
@@ -76,10 +85,47 @@ export const roles: Role[] = [
   },
 ];
 
+export const howIWork = [
+  {
+    n: '00',
+    label: 'Pre-sales',
+    title: 'Shape the deal so it can be delivered',
+    body:
+      'Discovery with the buyer, solution framing with architecture, and the SOW and commercial structure with the AE. The accounts I inherit are the ones I helped scope.',
+  },
+  {
+    n: '01',
+    label: 'First 30 days',
+    title: 'Diagnose before you promise',
+    body:
+      'Contract forensics, telemetry audit, renewal heatmap, and a listening tour with every executive sponsor — before proposing anything.',
+  },
+  {
+    n: '02',
+    label: 'Days 31–60',
+    title: 'Put a governance cadence around it',
+    body:
+      'A steering charter that separates sprint noise from board-level outcomes, threaded across economic buyer, architect and daily operator.',
+  },
+  {
+    n: '03',
+    label: 'Days 61–90',
+    title: 'Turn delivery trust into revenue',
+    body:
+      'Whitespace mapped against their roadmap, change orders framed as risk mitigation, renewal conversations opened 120 days early.',
+  },
+  {
+    n: '04',
+    label: 'Handover',
+    title: 'Make the account survive me',
+    body:
+      'Playbooks, decision logs and a QBR pack the next owner can run without re-learning the account from scratch.',
+  },
+];
+
 export type Advisory = {
   name: string;
   type: string;
-  date: string;
   headline: string;
   blurb: string;
   clients?: string[];
@@ -89,11 +135,12 @@ export type Advisory = {
   outcome: string;
 };
 
+export const advisoryTag = 'Advisory mandate';
+
 export const advisory: Advisory[] = [
   {
     name: 'Firework',
     type: 'Video commerce',
-    date: 'Completed Jan 2026',
     headline: 'Enterprise adoption, telemetry-driven QBRs & net revenue retention',
     blurb:
       'Advised leadership on structuring customer success operations for Tier-1 accounts, automating telemetry reporting so QBRs argued from evidence instead of spreadsheets.',
@@ -128,7 +175,6 @@ export const advisory: Advisory[] = [
   {
     name: 'HumanX',
     type: 'Enterprise product studio',
-    date: 'Feb — Jun 2023',
     headline: 'End-to-end sales cycles, executive governance & design–dev orchestration',
     blurb:
       'Led full-cycle sales from prospecting to contract onboarding and long-term retention, bridging design and engineering squads on mission-critical enterprise platforms.',
@@ -163,7 +209,6 @@ export const advisory: Advisory[] = [
   {
     name: 'Zoftware',
     type: 'B2B SaaS aggregation',
-    date: 'Advisory mandate',
     headline: 'Marketplace onboarding frameworks & lifecycle health scoring',
     blurb:
       'Architected onboarding playbooks and lifecycle health models for SMB and mid-market software aggregation — high volume without losing the white-glove tier.',
@@ -197,7 +242,6 @@ export const advisory: Advisory[] = [
   {
     name: 'SmartKarrot',
     type: 'CS intelligence SaaS',
-    date: 'Advisory mandate',
     headline: 'Automation adoption playbooks & cross-team revenue cadences',
     blurb:
       'Designed onboarding playbooks that got customers to automated value faster, compressing time-to-value across client teams.',
@@ -239,13 +283,27 @@ export const metrics = [
   {
     k: '80%+',
     v: 'Gross retention',
-    note: 'Sustained across multi-year contracts through C-suite Steering Committees.',
+    note: 'Sustained across multi-year contracts through C-suite steering committees.',
   },
   {
     k: '50%',
     v: 'Faster onboarding',
     note: 'Cycle compression across 25+ marquee enterprise accounts.',
   },
+];
+
+export const stackTable = [
+  { label: 'CRM & middleware', items: ['Salesforce', 'MuleSoft', 'HubSpot'] },
+  { label: 'Customer success', items: ['Health scoring', 'Renewal forecasting', 'QBR cadence'] },
+  { label: 'Applied AI', items: ['LLM synthesis', 'Churn signals', 'Telemetry briefs'] },
+  { label: 'Commercial', items: ['SOW & change orders', 'Multi-year extensions', 'Whitespace mapping'] },
+];
+
+export const certifications = [
+  { name: 'Salesforce Certified AI Associate', org: 'Salesforce' },
+  { name: 'Salesforce Certified Associate', org: 'Salesforce' },
+  { name: 'Sales Software Certified', org: 'HubSpot' },
+  { name: 'Inbound Sales Certified', org: 'HubSpot' },
 ];
 
 export const testimonials = [
@@ -274,6 +332,7 @@ export const testimonials = [
 
 export type Essay = {
   n: string;
+  short: string;
   read: string;
   kicker: string;
   tags: string[];
@@ -287,6 +346,7 @@ export type Essay = {
 export const essays: Essay[] = [
   {
     n: '01',
+    short: 'The post-telemetry QBR',
     read: '3 min read',
     kicker: 'Q4 executive brief',
     tags: ['Executive governance', 'Applied AI', 'Enterprise QBRs'],
@@ -315,6 +375,7 @@ export const essays: Essay[] = [
   },
   {
     n: '02',
+    short: 'Churn defence to expansion',
     read: '4 min read',
     kicker: 'Revenue architecture',
     tags: ['Net revenue retention', 'MuleSoft & Salesforce', 'Account expansion'],
@@ -343,6 +404,7 @@ export const essays: Essay[] = [
   },
   {
     n: '03',
+    short: 'The delivery–commercial divide',
     read: '3 min read',
     kicker: 'Operating philosophy',
     tags: ['Global operations', 'Client partner model', 'Systems thinking'],
@@ -366,12 +428,6 @@ export const essays: Essay[] = [
   },
 ];
 
-export const stack = [
-  { name: 'Salesforce & MuleSoft', level: 'Dual certified', note: 'Salesforce Certified AI Associate · Salesforce Certified Associate' },
-  { name: 'HubSpot', level: 'Dual certified', note: 'Sales Software Certified · Inbound Sales Certified' },
-  { name: 'Applied AI in client governance', level: 'Active practice', note: 'LLM telemetry synthesis · early churn detection · executive QBRs' },
-];
-
 export const elsewhere = [
   { label: 'LinkedIn', handle: '/in/yugjain', href: profile.linkedin, icon: 'linkedin' },
   { label: 'Email', handle: 'yugrjain@gmail.com', href: `mailto:${profile.email}`, icon: 'mail' },
@@ -379,30 +435,22 @@ export const elsewhere = [
   { label: 'Résumé', handle: 'PDF · 2 pages', href: profile.resume, icon: 'file' },
 ];
 
-export const guitar = {
-  title: 'Classic rock in four bars',
-  blurb: 'Four open chords, a plucked-string synth and the only reason I own an interface. Pick a progression and play it.',
-  progression: [
-    { chord: 'G', fingering: '320003', freqs: [196.0, 246.94, 293.66, 392.0] },
-    { chord: 'D', fingering: 'xx0232', freqs: [146.83, 220.0, 293.66, 369.99] },
-    { chord: 'C', fingering: 'x32010', freqs: [130.81, 196.0, 261.63, 329.63] },
-    { chord: 'D', fingering: 'xx0232', freqs: [146.83, 220.0, 293.66, 369.99] },
-  ],
-  repertoire: [
-    { song: 'Wonderful Tonight', artist: 'Eric Clapton', bpm: 95 },
-    { song: 'Knockin’ on Heaven’s Door', artist: 'Bob Dylan', bpm: 72 },
-    { song: 'Hotel California', artist: 'Eagles', bpm: 75 },
-    { song: 'Layla — Unplugged', artist: 'Eric Clapton', bpm: 92 },
-  ],
+/* Silent pattern player — the fingerstyle figure, no audio. */
+export const song = {
+  title: 'Stop This Train',
+  artist: 'John Mayer',
+  note: 'Percussive fingerstyle: thumb on the backbeat, ghost notes between. Muted here so you can read.',
+  bpm: 92,
+  pattern: [
+    ['T', '', '', ''],
+    ['', 'i', '', 'm'],
+    ['', '', 'slap', ''],
+    ['', 'm', '', 'i'],
+  ] as string[][],
 };
 
 export const pitch = [
-  {
-    x: 50,
-    y: 8,
-    role: 'Striker',
-    note: 'Owns the outcome. Owns the renewal.',
-  },
+  { x: 50, y: 8, role: 'Striker', note: 'Owns the outcome. Owns the renewal.' },
   {
     x: 22,
     y: 38,
@@ -431,10 +479,17 @@ export const pitch = [
 
 export const coffee = {
   title: 'Inverted AeroPress, 4-day split',
-  blurb: 'Single-origin, 200°F, inverted. Then a disciplined four-day resistance split — because governance cadence needs the same consistency.',
+  blurb:
+    'Single-origin, 200°F, inverted. Then a disciplined four-day resistance split — because governance cadence needs the same consistency.',
   steps: [
     { label: 'Invert & dose', note: '18g, medium-fine. Rinse the filter.' },
     { label: 'Bloom & steep', note: '60g water, 30s bloom, then top to 220g.' },
     { label: 'Press slow', note: 'Flip, press for 30 seconds. Stop at the hiss.' },
   ],
+};
+
+export const sectionNotes = {
+  advisory: 'four mandates,\nsame posture',
+  proof: 'the numbers that\nsurvived diligence',
+  play: 'yes, the guitar\nis real',
 };

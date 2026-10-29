@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { profile } from '../content';
-import { ArrowUpRight, CalendarIcon, FileIcon, LinkedIn } from './Icons';
+import StickerBanner from './Stickers';
+import { ArrowUpRight, CalendarIcon, Chart, FileIcon, LinkedIn, Note } from './Icons';
 
 function useLocalTime() {
   const [time, setTime] = useState('');
@@ -21,52 +22,69 @@ function useLocalTime() {
   return time;
 }
 
+function Inline({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="mx-0.5 inline-flex translate-y-[1px] items-center rounded-md border border-line bg-line/30 px-1.5 py-0.5 align-baseline">
+      {children}
+    </span>
+  );
+}
+
 export default function Hero() {
   const time = useLocalTime();
 
   return (
-    <section id="top" className="px-5 pb-7 pt-9 sm:px-9 sm:pb-8 sm:pt-12">
-      <div className="flex items-center gap-4">
+    <section id="top" className="px-5 pb-6 pt-7 sm:px-7 sm:pb-7 sm:pt-9">
+      <StickerBanner />
+
+      <div className="mt-1 flex items-center gap-2.5">
         <img
           src={profile.avatar}
           alt="Yug Jain"
-          width={64}
-          height={64}
-          className="h-14 w-14 rounded-2xl border border-line object-cover object-[50%_26%] sm:h-16 sm:w-16"
+          width={36}
+          height={36}
+          className="h-9 w-9 rounded-lg border border-line object-cover object-[50%_26%]"
         />
-        <div>
-          <h1 className="text-[30px] font-medium leading-none tracking-[-0.035em] sm:text-[40px]">
-            Hey, I’m Yug<span className="text-accent">.</span>
-          </h1>
-          <p className="mt-2 text-[13px] text-muted sm:text-sm">
-            {profile.role} · {profile.roleLine}
-          </p>
-        </div>
+        <h1 className="text-[26px] font-medium leading-none tracking-[-0.035em] sm:text-[30px]">
+          Hey, I’m Yug<span className="text-accent">.</span>
+        </h1>
       </div>
+      <p className="mono mt-2 text-[10.5px] uppercase tracking-[0.14em] text-faint">
+        {profile.role} · {profile.roleLine}
+      </p>
 
-      <div className="mt-6 max-w-[58ch] space-y-2.5 text-[15px] leading-[1.7] text-muted sm:text-[15.5px]">
+      <div className="mt-4 max-w-[58ch] space-y-2.5 text-[14.5px] leading-[1.72] text-muted sm:text-[15px]">
         <p>
           I run post-sales for a{' '}
           <strong className="font-medium text-ink">$1M+ ARR Salesforce &amp; MuleSoft portfolio</strong> at
-          NTT DATA North America.
+          NTT DATA North America — and I’m in the room from first discovery to renewal.
         </p>
         <p>
-          I turn adoption telemetry into executive QBRs that protect renewals and open expansion —{' '}
-          <strong className="font-medium text-ink">+30% ARR, 80%+ gross retention</strong>, across REITs,
-          InsurTech and Fortune 500 consumer brands.
+          I turn adoption telemetry into executive QBRs
+          <Inline>
+            <Chart className="mr-1 h-3 w-3" />
+            <span className="mono text-[9.5px] uppercase tracking-[0.06em]">QBR</span>
+          </Inline>{' '}
+          that protect renewals and open expansion —{' '}
+          <strong className="font-medium text-ink">+30% ARR, 80%+ gross retention</strong>.
         </p>
         <p>
           Trained as an engineer, so I diagnose the integration before I sell the next change order. I also
-          advise early-stage teams, and I write about what actually moves the number.
+          play guitar
+          <Inline>
+            <Note className="mr-1 h-3 w-3" />
+            <span className="mono text-[9.5px] uppercase tracking-[0.06em]">guitar</span>
+          </Inline>
+          , and I work across three time zones.
         </p>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-2.5">
+      <div className="mt-5 flex flex-wrap items-center gap-2.5">
         <a
           href={profile.calendar}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-2 text-[13px] font-medium text-accent-ink transition-transform hover:-translate-y-px"
+          className="inline-flex items-center gap-2 rounded-md bg-accent px-3.5 py-2 text-[13px] font-medium text-accent-ink transition-transform hover:-translate-y-px"
         >
           <CalendarIcon className="h-3.5 w-3.5" />
           Book 15 min
@@ -76,7 +94,7 @@ export default function Hero() {
           href={profile.resume}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-line px-3.5 py-2 text-[13px] text-ink transition-colors hover:border-ink/40 hover:bg-line/40"
+          className="inline-flex items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[13px] text-ink transition-colors hover:border-ink/40 hover:bg-line/40"
         >
           <FileIcon className="h-3.5 w-3.5" />
           Résumé
@@ -92,7 +110,7 @@ export default function Hero() {
         </a>
       </div>
 
-      <div className="mt-7 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-line pt-4 text-[12px] text-faint">
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-dashed border-line pt-3.5 text-[12px] text-faint">
         <span className="inline-flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           {profile.location} · <span className="mono">{time} IST</span>
@@ -103,11 +121,11 @@ export default function Hero() {
         </a>
       </div>
 
-      <ul className="mt-4 flex flex-wrap gap-1.5">
+      <ul className="mt-3 flex flex-wrap gap-1.5">
         {profile.status.map((s) => (
           <li
             key={s}
-            className="mono rounded-full border border-line px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] text-faint"
+            className="mono rounded-full border border-dashed border-line px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] text-faint"
           >
             {s}
           </li>

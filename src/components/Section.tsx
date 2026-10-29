@@ -6,21 +6,21 @@ export default function Section({
   title,
   hint,
   children,
+  className = '',
 }: {
   id: string;
   eyebrow: string;
   title?: string;
   hint?: string;
   children: ReactNode;
+  className?: string;
 }) {
   return (
-    <section id={id} className="border-t border-line px-5 py-9 sm:px-9 sm:py-11">
-      <div className="mb-6 flex items-baseline justify-between gap-4">
+    <section id={id} className={`section-rule relative px-5 py-8 sm:px-7 sm:py-9 ${className}`}>
+      <div className="mb-5 flex items-baseline justify-between gap-4">
         <div>
           <span className="eyebrow">{eyebrow}</span>
-          {title && (
-            <h2 className="mt-2 text-[19px] font-medium tracking-[-0.02em] sm:text-[21px]">{title}</h2>
-          )}
+          {title && <h2 className="section-title mt-1.5">{title}</h2>}
         </div>
         {hint && (
           <span className="mono hidden shrink-0 text-[10.5px] uppercase tracking-[0.12em] text-faint sm:block">

@@ -121,3 +121,48 @@ export function Close({ className = 'h-4 w-4' }: IconProps) {
     </svg>
   );
 }
+
+/* Small inline glyphs used inside body copy. */
+
+export function Cloud({ className = 'h-3.5 w-3.5' }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M7 18h9a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 6 9.5 4.25 4.25 0 0 0 7 18Z" />
+    </svg>
+  );
+}
+
+export function Chart({ className = 'h-3.5 w-3.5' }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-7" />
+    </svg>
+  );
+}
+
+export function Note({ className = 'h-3.5 w-3.5' }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M9 18V6l10-2v12" />
+      <circle cx="6.5" cy="18" r="2.5" />
+      <circle cx="16.5" cy="16" r="2.5" />
+    </svg>
+  );
+}
+
+export function Globe({ className = 'h-3.5 w-3.5' }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3.5 9h17M3.5 15h17M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
+    </svg>
+  );
+}
+
+export function ArrowRight({ className = 'h-3.5 w-3.5' }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 12h15M13 6l6 6-6 6" />
+    </svg>
+  );
+}

@@ -33,10 +33,10 @@ src/
   useTheme.ts         light/dark with localStorage + system default
   App.tsx             page order
   components/
-    TopBar · Hero · Work · Advisory · Proof · Writing · Reader
-    Synthesizer       the QBR widget (deterministic, no API)
-    OffClock          guitar synth, pitch positions, AeroPress stepper
-    Elsewhere · Footer · Section · Icons
+    TopBar · BottomNav · Hero · Stickers · Work · HowIWork · Advisory
+    Proof · Writing · Reader · Synthesizer
+    OffClock          silent fingerstyle sequencer, draggable ball, draggable press
+    Closing · Elsewhere · Footer · Section · Reveal · Marginalia · Lamp · Icons
 ```
 
 ## Editing content

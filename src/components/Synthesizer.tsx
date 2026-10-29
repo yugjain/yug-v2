@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { quotes } from '../content';
 import { Check, Copy } from './Icons';
 import Section from './Section';
 
@@ -98,6 +99,15 @@ export default function Synthesizer() {
 
   return (
     <Section id="ai" eyebrow="Applied AI" title="The QBR synthesizer" hint="Move the inputs">
+      <div className="mb-4">
+        <p className="serif max-w-[46ch] text-[14px] italic leading-snug text-faint">
+          “{quotes.synthesizer.text}”
+        </p>
+        <p className="mono mt-1 text-[9px] uppercase tracking-[0.14em] text-faint">
+          — {quotes.synthesizer.who}
+        </p>
+      </div>
+
       <p className="max-w-[62ch] text-[14px] leading-[1.7] text-muted">
         The most useful AI in post-sales is not a chatbot — it is compression. Take three signals a CSM
         already has and turn them into a decision brief an executive can act on in 25 minutes. This is the
@@ -184,7 +194,7 @@ export default function Synthesizer() {
             Reset to baseline
           </button>
 
-          <div className="mt-6 border-t border-line pt-4">
+          <div className="mt-6 hidden border-t border-line pt-4 sm:block">
             <p className="mono mb-2 text-[9.5px] uppercase tracking-[0.14em] text-faint">Score bands</p>
             <ul className="space-y-1.5">
               {[
@@ -204,6 +214,13 @@ export default function Synthesizer() {
               Baseline 84, minus adoption drift, P1 load and sponsor continuity. Deterministic template
               logic — no model call, no client data.
             </p>
+
+            <div className="mt-4 hidden border-t border-dashed border-line pt-3 sm:block">
+              <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">Replaces</p>
+              <p className="mt-1 text-[11.5px] leading-[1.6] text-muted">
+                A 40-slide deck, two days of chart formatting and one very patient executive assistant.
+              </p>
+            </div>
           </div>
         </div>
 

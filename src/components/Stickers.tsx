@@ -377,6 +377,8 @@ type StickerProps = {
 };
 
 function Sticker({ label, tilt, left, top, width, depth, px, py, z = 1, children }: StickerProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
   const style = {
     left,
     top,
@@ -387,10 +389,25 @@ function Sticker({ label, tilt, left, top, width, depth, px, py, z = 1, children
     '--py': `${py * depth}px`,
   } as CSSProperties;
 
+  // Restart the wobble on every click, including rapid repeats.
+  const poke = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.classList.remove('poked');
+    void el.offsetWidth;
+    el.classList.add('poked');
+  };
+
   return (
-    <div className="sticker absolute block drop-shadow-[0_10px_14px_rgba(20,18,14,0.16)]" style={style} aria-hidden>
+    <div
+      ref={ref}
+      className="sticker absolute block drop-shadow-[0_10px_14px_rgba(20,18,14,0.16)]"
+      style={style}
+      onClick={poke}
+      aria-hidden
+      title={label}
+    >
       {children}
-      <span className="sr-only">{label}</span>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { profile } from '../content';
 import StickerBanner from './Stickers';
-import { ArrowUpRight, CalendarIcon, Chart, FileIcon, LinkedIn, Note } from './Icons';
+import { ArrowUpRight, CalendarIcon, Chart, FileIcon, LinkedIn } from './Icons';
 
 function useLocalTime() {
   const [time, setTime] = useState('');
@@ -67,15 +67,6 @@ export default function Hero() {
           </Inline>{' '}
           that protect renewals and open expansion —{' '}
           <strong className="font-medium text-ink">+30% ARR, 80%+ gross retention</strong>.
-        </p>
-        <p>
-          Trained as an engineer, so I diagnose the integration before I sell the next change order. I also
-          play guitar
-          <Inline>
-            <Note className="mr-1 h-3 w-3" />
-            <span className="mono text-[9.5px] uppercase tracking-[0.06em]">guitar</span>
-          </Inline>
-          , and I work across three time zones.
         </p>
       </div>
 

@@ -75,13 +75,13 @@ export default function Proof() {
         <ul className="border-y border-dashed border-line">
           {certifications.map((c) => (
             <li
-              key={c.name}
+              key={c.org}
               className="flex items-baseline justify-between gap-3 border-b border-dashed border-line py-1.5 last:border-b-0"
             >
-              <span className="text-[12px] text-muted">{c.name}</span>
               <span className="mono shrink-0 text-[9.5px] uppercase tracking-[0.1em] text-faint">
                 {c.org}
               </span>
+              <span className="text-right text-[12px] text-muted">{c.items.join(' · ')}</span>
             </li>
           ))}
         </ul>

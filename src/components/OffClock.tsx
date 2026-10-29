@@ -62,8 +62,9 @@ function Guitar() {
         >
           <defs>
             <linearGradient id="rim2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="var(--ink)" stopOpacity="0.09" />
-              <stop offset="100%" stopColor="var(--ink)" stopOpacity="0.02" />
+              <stop offset="0%" stopColor="#E7B173" />
+              <stop offset="45%" stopColor="#D79A56" />
+              <stop offset="100%" stopColor="#B97B3D" />
             </linearGradient>
             <filter id="soft2" x="-20%" y="-20%" width="140%" height="140%">
               <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="var(--ink)" floodOpacity="0.1" />
@@ -88,8 +89,8 @@ function Guitar() {
                  L236 100 C232 115 216 124 196 124 C176 124 160 95 150 110 C140 126 124 143 100 143 C62 143 36 119 36 85 Z"
               fill="url(#rim2)"
               stroke="var(--ink)"
-              strokeOpacity="0.5"
-              strokeWidth="1.3"
+              strokeOpacity="0.8"
+              strokeWidth="1.6"
             />
             <path
               d="M46 87 C46 60 68 37 100 37 C120 37 132 50 141 63"
@@ -99,8 +100,10 @@ function Guitar() {
               strokeWidth="1"
             />
           </g>
-          <circle cx="98" cy="85" r="16" fill="var(--paper)" stroke="var(--ink)" strokeOpacity="0.3" strokeWidth="1.2" />
-          <rect x="46" y="78" width="11" height="13" rx="2" fill="var(--paper)" stroke="var(--ink)" strokeOpacity="0.3" strokeWidth="1" />
+          <circle cx="98" cy="85" r="19" fill="none" stroke="#D3A04A" strokeWidth="1.8" opacity="0.8" />
+          <circle cx="98" cy="85" r="15" fill="#F4EBDD" stroke="var(--ink)" strokeOpacity="0.55" strokeWidth="1.4" />
+          <circle cx="98" cy="85" r="9" fill="#2A1A10" />
+          <rect x="46" y="78" width="11" height="13" rx="2" fill="#2A1A10" opacity="0.85" />
 
           {[0, 1, 2, 3, 4, 5].map((i) => {
             const y = 75 + i * 4;
@@ -127,8 +130,8 @@ function Guitar() {
                   x2="600"
                   y2={y}
                   stroke={active ? 'var(--accent)' : 'var(--ink)'}
-                  strokeWidth={active ? 1.8 : 0.8}
-                  opacity={active ? 1 : 0.45}
+                  strokeWidth={active ? 1.8 : 0.9}
+                  opacity={active ? 1 : 0.55}
                   style={{ transition: 'stroke 120ms, stroke-width 120ms, opacity 120ms' }}
                 />
               </g>
@@ -190,9 +193,8 @@ function Guitar() {
 
         <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
           <p className="mono text-[9px] uppercase tracking-[0.12em] text-faint">
-            T thumb · i index · m middle · slap
+            T thumb · i index · m middle · slap · {song.bpm} bpm
           </p>
-          <p className="serif text-[12px] italic text-faint">{song.bpm} bpm · C♯ · no capo</p>
         </div>
       </div>
     </div>
@@ -434,9 +436,7 @@ function Coffee() {
         >
           {done ? 'Brew another' : step === coffee.steps.length - 1 ? 'Press' : `Next: ${coffee.steps[step + 1].label}`}
         </button>
-        <p className="serif mt-1.5 text-center text-[11.5px] italic text-faint">
-          …or drag the plunger down.
-        </p>
+
       </div>
     </div>
   );

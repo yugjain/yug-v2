@@ -180,42 +180,10 @@ html.dark :focus-visible {
   }
 }
 
+/* Scroll reveals removed on purpose: content is always painted. The page has
+   enough motion in the stickers, toys and hover states. */
 .reveal {
-  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease), filter 0.55s var(--ease);
-}
-
-.reveal.is-hidden {
-  opacity: 0;
-  transform: translateY(10px);
-  filter: blur(3px);
-}
-
-.reveal.is-hidden.is-in {
   opacity: 1;
-  transform: none;
-  filter: none;
-}
-
-@keyframes wobble {
-  0% { transform: rotate(var(--tilt)) scale(1); }
-  35% { transform: rotate(calc(var(--tilt) * 0.4)) scale(1.06); }
-  70% { transform: rotate(calc(var(--tilt) * 1.35)) scale(0.98); }
-  100% { transform: rotate(var(--tilt)) scale(1); }
-}
-
-.sticker {
-  transition: transform 0.32s var(--ease), filter 0.32s var(--ease);
-  transform: rotate(var(--tilt)) translate3d(var(--px, 0px), var(--py, 0px), 0);
-  will-change: transform;
-}
-
-.sticker:hover,
-.sticker:focus-visible {
-  transform: rotate(calc(var(--tilt) * 0.35)) translate3d(var(--px, 0px), calc(var(--py, 0px) - 6px), 0) scale(1.06);
-}
-
-.sticker:active {
-  animation: wobble 0.45s var(--ease);
 }
 
 /* ------------------------------------------------------------------ toys */

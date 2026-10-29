@@ -109,12 +109,12 @@ export default function Synthesizer() {
       </div>
 
       <p className="max-w-[62ch] text-[14px] leading-[1.7] text-muted">
-        The most useful AI in post-sales is not a chatbot — it is compression. Take three signals a CSM
-        already has and turn them into a decision brief an executive can act on in 25 minutes. This is the
-        same logic I run on live telemetry, with the client data removed.
+        The most useful AI in post-sales isn’t a chatbot — it’s compression. Three signals a CSM already
+        has, turned into a decision brief an executive can act on in 25 minutes.
       </p>
 
-      <div className="mt-5 grid gap-px overflow-hidden rounded-xl border border-line bg-line lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+      <div className="mt-5 overflow-hidden rounded-xl border border-line">
+        <div className="grid gap-px bg-line lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
         {/* Controls */}
         <div className="bg-paper p-5">
           <p className="mono mb-4 text-[10px] uppercase tracking-[0.14em] text-faint">Signals</p>
@@ -194,34 +194,25 @@ export default function Synthesizer() {
             Reset to baseline
           </button>
 
-          <div className="mt-6 hidden border-t border-line pt-4 sm:block">
-            <p className="mono mb-2 text-[9.5px] uppercase tracking-[0.14em] text-faint">Score bands</p>
-            <ul className="space-y-1.5">
-              {[
-                ['Expansion-ready', '78 — 100', 'bg-accent'],
-                ['Watch', '58 — 77', 'bg-amber-400'],
-                ['At risk', '38 — 57', 'bg-orange-400'],
-                ['Critical', '0 — 37', 'bg-red-500'],
-              ].map(([label, range, color]) => (
-                <li key={label} className="flex items-center gap-2">
-                  <span className={`h-1.5 w-1.5 rounded-full ${color}`} />
-                  <span className="text-[11.5px] text-muted">{label}</span>
-                  <span className="mono ml-auto text-[10px] text-faint">{range}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-3 text-[11px] leading-[1.6] text-faint">
-              Baseline 84, minus adoption drift, P1 load and sponsor continuity. Deterministic template
-              logic — no model call, no client data.
-            </p>
-
-            <div className="mt-4 hidden border-t border-dashed border-line pt-3 sm:block">
-              <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">Replaces</p>
-              <p className="mt-1 text-[11.5px] leading-[1.6] text-muted">
-                A 40-slide deck, two days of chart formatting and one very patient executive assistant.
-              </p>
+          <div className="mt-5">
+            <div className="flex h-1.5 overflow-hidden rounded-full">
+              <span className="w-[37%] bg-red-500/80" />
+              <span className="w-[20%] bg-orange-400/80" />
+              <span className="w-[20%] bg-amber-400/80" />
+              <span className="w-[23%] bg-accent" />
+            </div>
+            <div className="mono mt-1 flex justify-between text-[8px] uppercase tracking-[0.08em] text-faint">
+              <span>Critical</span>
+              <span>At risk</span>
+              <span>Watch</span>
+              <span>Ready</span>
             </div>
           </div>
+
+          <p className="mt-4 border-t border-line pt-3 text-[11px] leading-[1.6] text-faint">
+            Baseline 84, minus adoption drift, P1 load and sponsor continuity. Deterministic — no model
+            call, no client data.
+          </p>
         </div>
 
         {/* Output */}
@@ -286,22 +277,24 @@ export default function Synthesizer() {
             </ul>
           </div>
 
-          <div className="mt-4 flex items-center justify-between gap-3 border-t border-line pt-3">
-            <p className="max-w-[34ch] text-[10.5px] leading-snug text-faint">
-              Illustrative model · no client data. Production runs on live telemetry.
-            </p>
-            <button
-              type="button"
-              onClick={copy}
-              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line px-2.5 py-1 text-[11px] text-muted transition-colors hover:border-ink/40 hover:text-ink"
-            >
-              {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-              {copied ? 'Copied' : 'Copy brief'}
-            </button>
-          </div>
           <p className="sr-only" aria-live="polite">
             Health {score} of 100. {verdict.label}.
           </p>
+        </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line bg-paper px-5 py-2.5">
+          <p className="max-w-[40ch] text-[10.5px] leading-snug text-faint">
+            Illustrative model · no client data. Production runs on live telemetry.
+          </p>
+          <button
+            type="button"
+            onClick={copy}
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line px-2.5 py-1 text-[11px] text-muted transition-colors hover:border-ink/40 hover:text-ink"
+          >
+            {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+            {copied ? 'Copied' : 'Copy brief'}
+          </button>
         </div>
       </div>
     </Section>

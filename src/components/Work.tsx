@@ -7,9 +7,9 @@ export default function Work() {
   return (
     <Section id="work" eyebrow="Selected work" title="Where I’ve run the number" hint="2016 — now">
       <ul>
-        {roles.map((role, i) => (
+        {roles.map((role) => (
           <li key={role.company} className="border-b border-dashed border-line last:border-b-0">
-            <details className="group" open={i === 0}>
+            <details className="group">
               <summary className="flex cursor-pointer list-none items-start gap-3 rounded-md py-3.5 transition-colors hover:bg-line/20 [&::-webkit-details-marker]:hidden">
                 <span className="mono mt-0.5 w-5 shrink-0 text-[10.5px] text-faint">{role.n}</span>
                 <div className="min-w-0 flex-1">
@@ -19,9 +19,9 @@ export default function Work() {
                       {role.years}
                     </span>
                   </div>
-                  <p className="mt-0.5 text-[12.5px] text-muted">
-                    {role.role}
-                    <span className="hidden sm:inline"> · {role.tag}</span>
+                  <p className="mt-0.5 text-[12.5px] text-muted">{role.role}</p>
+                  <p className="mono mt-0.5 text-[10px] uppercase tracking-[0.08em] text-faint">
+                    {role.impact}
                   </p>
                 </div>
                 <Chevron className="mt-1 h-3.5 w-3.5 shrink-0 text-faint transition-transform group-open:rotate-180" />

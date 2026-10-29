@@ -32,6 +32,7 @@ export type Role = {
   company: string;
   role: string;
   tag: string;
+  impact: string;
   years: string;
   summary: string;
   bullets?: string[];
@@ -44,6 +45,7 @@ export const roles: Role[] = [
     company: 'NTT DATA North America',
     role: 'Client Partner & Customer Success Manager',
     tag: '$1M ARR portfolio · US accounts',
+    impact: '+30% ARR · 80%+ GRR · $1M book',
     years: '2022 — Present',
     summary:
       'Dual mandate across delivery governance and commercial growth for a $1M ARR Salesforce & MuleSoft enterprise portfolio spanning North American REITs, Fortune 500 consumer goods, InsurTech, wealth management and retail.',
@@ -64,6 +66,7 @@ export const roles: Role[] = [
     company: 'Deepstash',
     role: 'Customer Success Manager',
     tag: 'First B2B enterprise account',
+    impact: '50% faster onboarding · first B2B motion',
     years: '2020 — 2022',
     summary:
       'Built the company’s first B2B corporate motion alongside a consumer product with a large install base — turning enterprise onboarding into a repeatable, measured path to first value.',
@@ -81,6 +84,7 @@ export const roles: Role[] = [
     company: 'Office Pulse · CoWorkingOps · WorkAmp',
     role: 'Customer Success Specialist & Operations Manager',
     tag: '25+ enterprise accounts',
+    impact: '25+ enterprise accounts · ops to CS',
     years: '2016 — 2020',
     summary:
       'Ran customer success and operations across 25+ enterprise accounts in workplace and coworking software, where delivery friction and adoption were the same conversation.',
@@ -93,35 +97,31 @@ export const howIWork = [
     label: 'Pre-sales',
     title: 'Shape the deal so it can be delivered',
     body:
-      'Discovery with the buyer, solution framing with architecture, and the SOW and commercial structure with the AE. The accounts I inherit are the ones I helped scope.',
+      'Discovery, solution framing and the SOW with the AE — the accounts I inherit are ones I helped scope.',
   },
   {
     n: '01',
     label: 'First 30 days',
     title: 'Diagnose before you promise',
-    body:
-      'Contract forensics, telemetry audit, renewal heatmap, and a listening tour with every executive sponsor — before proposing anything.',
+    body: 'Contract forensics, telemetry audit and a listening tour with every executive sponsor.',
   },
   {
     n: '02',
     label: 'Days 31–60',
     title: 'Put a governance cadence around it',
-    body:
-      'A steering charter that separates sprint noise from board-level outcomes, threaded across economic buyer, architect and daily operator.',
+    body: 'A steering charter that separates sprint noise from board-level outcomes.',
   },
   {
     n: '03',
     label: 'Days 61–90',
     title: 'Turn delivery trust into revenue',
-    body:
-      'Whitespace mapped against their roadmap, change orders framed as risk mitigation, renewal conversations opened 120 days early.',
+    body: 'Whitespace mapped to their roadmap, renewals opened 120 days early.',
   },
   {
     n: '04',
     label: 'Handover',
     title: 'Make the account survive me',
-    body:
-      'Playbooks, decision logs and a QBR pack the next owner can run without re-learning the account from scratch.',
+    body: 'Playbooks and a decision log the next owner can run without re-learning the account.',
   },
 ];
 
@@ -280,53 +280,51 @@ export const metrics = [
   {
     k: '+30%',
     v: 'ARR expansion',
-    note: 'Across the NTT DATA North America portfolio of Salesforce & MuleSoft accounts.',
+    note: 'NTT DATA North America portfolio',
   },
   {
     k: '80%+',
     v: 'Gross retention',
-    note: 'Sustained across multi-year contracts through C-suite steering committees.',
+    note: 'Multi-year contracts',
   },
   {
     k: '50%',
     v: 'Faster onboarding',
-    note: 'Cycle compression across 25+ marquee enterprise accounts.',
+    note: 'Across 25+ enterprise accounts',
   },
 ];
 
 export const stackTable = [
   { label: 'CRM & middleware', items: ['Salesforce', 'MuleSoft', 'HubSpot'] },
-  { label: 'Customer success', items: ['Health scoring', 'Renewal forecasting', 'QBR cadence'] },
-  { label: 'Applied AI', items: ['LLM synthesis', 'Churn signals', 'Telemetry briefs'] },
-  { label: 'Commercial', items: ['SOW & change orders', 'Multi-year extensions', 'Whitespace mapping'] },
+  { label: 'Customer success', items: ['Health scoring', 'QBR cadence'] },
+  { label: 'Applied AI', items: ['LLM synthesis', 'Churn signals'] },
+  { label: 'Commercial', items: ['SOW & change orders'] },
 ];
 
 export const certifications = [
-  { name: 'Salesforce Certified AI Associate', org: 'Salesforce' },
-  { name: 'Salesforce Certified Associate', org: 'Salesforce' },
-  { name: 'Sales Software Certified', org: 'HubSpot' },
-  { name: 'Inbound Sales Certified', org: 'HubSpot' },
+  { org: 'Salesforce', items: ['AI Associate', 'Associate'] },
+  { org: 'HubSpot', items: ['Sales Software', 'Inbound Sales'] },
 ];
 
 export const testimonials = [
   {
     badge: '+30% portfolio ARR',
     quote:
-      'Yug operates with a rare dual lens: he can hold the room with North American enterprise VPs during high-stakes SOW and Steering Committee negotiations, and immediately pivot to diagnosing Salesforce and MuleSoft delivery dependencies with engineering leads.',
+      'Yug holds the room with enterprise VPs during Steering Committee negotiations, then pivots to diagnosing Salesforce and MuleSoft dependencies with engineering leads.',
     role: 'Enterprise delivery & practice leadership',
     org: 'NTT DATA North America portfolio · $1M+ ARR',
   },
   {
     badge: 'Samsung · Unilever · Titan',
     quote:
-      'Bringing Yug in as a strategic advisor transformed how we structured post-sales governance for our Tier-1 enterprise logos. He replaced reactive check-ins with telemetry-backed QBRs that directly protected multi-brand renewals.',
+      'He replaced reactive check-ins with telemetry-backed QBRs that directly protected multi-brand renewals across our Tier-1 logos.',
     role: 'Executive leadership',
     org: 'Series B enterprise SaaS · video commerce',
   },
   {
     badge: '50% faster time-to-value',
     quote:
-      'Most CSMs manage tickets; Yug builds systems. From compressing enterprise onboarding cycles by 50% to pioneering our first B2B corporate team contracts, he brings true founder-level commercial urgency to post-sales.',
+      'Most CSMs manage tickets; Yug builds systems — 50% faster onboarding and our first B2B corporate contracts.',
     role: 'Product & commercial leadership',
     org: 'High-growth B2B SaaS & operations',
   },
@@ -447,7 +445,7 @@ export const elsewhere = [
 export const song = {
   title: 'Stop This Train',
   artist: 'John Mayer',
-  note: 'Percussive fingerstyle: thumb on the backbeat, ghost notes between. Muted here so you can read.',
+  note: 'Percussive fingerstyle. Silent here, so you can read.',
   bpm: 92,
   pattern: [
     ['T', '', '', ''],

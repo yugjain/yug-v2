@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yugjain.github.io/yug-v2/sitemap.xml

@@ -6,7 +6,7 @@ import { sectionNotes } from '../content';
 
 export default function Proof() {
   return (
-    <Section id="proof" eyebrow="Evidence" title="What the portfolio actually did" hint="Verified numbers">
+    <Section id="proof" eyebrow="Evidence" title="What the portfolio actually did" hint="Selected results">
       <Marginalia side="left" className="top-20">
         {sectionNotes.proof}
       </Marginalia>

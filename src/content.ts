@@ -44,11 +44,11 @@ export const roles: Role[] = [
     n: '01',
     company: 'NTT DATA North America',
     role: 'Client Partner & Customer Success Manager',
-    tag: '$1M ARR portfolio · US accounts',
+    tag: '$1.0M ARR portfolio · US accounts',
     impact: '$1.0M → $1.3M ARR · 80%+ GRR',
     years: '2022 — Present',
     summary:
-      'Dual mandate across delivery governance and commercial growth for a $1M ARR Salesforce & MuleSoft enterprise portfolio spanning North American REITs, Fortune 500 consumer goods, InsurTech, wealth management and retail.',
+      'Dual mandate across delivery governance and commercial growth for a $1.0M ARR Salesforce & MuleSoft enterprise portfolio spanning North American REITs, Fortune 500 consumer goods, InsurTech, wealth management and retail.',
     bullets: [
       'Co-owned the early-stage cycle with the account executive — discovery, solution framing, SOW and commercial structuring — then carried the same accounts through delivery and expansion.',
       'Expanded the portfolio from $1.0M to $1.3M ARR through consultative upselling, multi-year extensions and adjacent MuleSoft integration change orders.',
@@ -290,7 +290,7 @@ export const metrics = [
   {
     k: '50%',
     v: 'Faster onboarding',
-    note: 'Across 25+ enterprise accounts',
+    note: 'Deepstash · activation redesign',
   },
 ];
 
@@ -305,7 +305,7 @@ export const testimonials = [
     quote:
       'Yug holds the room with enterprise VPs during Steering Committee negotiations, then pivots to diagnosing Salesforce and MuleSoft dependencies with engineering leads.',
     role: 'Enterprise delivery & practice leadership',
-    org: 'NTT DATA North America portfolio · $1M+ ARR',
+    org: 'NTT DATA North America portfolio · $1.0M+ ARR',
   },
   {
     badge: 'Samsung · Unilever · Titan',
@@ -351,7 +351,7 @@ export const essays: Essay[] = [
       {
         h: 'The symptom: data rich, insight starved',
         body:
-          'Across $1M+ ARR Salesforce and MuleSoft accounts, the main cause of executive disengagement isn’t poor technical delivery — it’s cognitive overload. When Client Partners show up to a steering committee with 40 slides of JIRA burn-downs and API call graphs, they force the executive sponsor to do the translation work between technical output and board-level outcomes.',
+          'Across $1.0M+ ARR Salesforce and MuleSoft accounts, the main cause of executive disengagement isn’t poor technical delivery — it’s cognitive overload. When Client Partners show up to a steering committee with 40 slides of JIRA burn-downs and API call graphs, they force the executive sponsor to do the translation work between technical output and board-level outcomes.',
       },
       {
         h: 'The shift: a three-page decision brief',
@@ -373,7 +373,7 @@ export const essays: Essay[] = [
     kicker: 'Revenue architecture',
     tags: ['Net revenue retention', 'MuleSoft & Salesforce', 'Account expansion'],
     title: 'From churn defence to expansion signals in enterprise SaaS',
-    dek: 'How operating with an engineering mindset turns routine middleware and CRM governance into a +30% net revenue expansion engine.',
+    dek: 'How operating with an engineering mindset turns routine middleware and CRM governance into a +30% ARR expansion engine.',
     thesis:
       'Most post-sales teams treat retention and expansion as separate motions — playing defence for ten months, then pitching an upsell 60 days before renewal. In complex enterprise architectures, they are the same discipline.',
     sections: [
@@ -385,7 +385,7 @@ export const essays: Essay[] = [
       {
         h: 'The consultative change-order motion',
         body:
-          'Expanding a $1M portfolio by 30% requires training delivery squads and architects to recognise commercial triggers without feeling like salespeople. Structured solution architecture reviews mid-contract frame capacity extensions as risk mitigation for the client’s own roadmap deadlines.',
+          'Expanding a $1.0M portfolio by 30% requires training delivery squads and architects to recognise commercial triggers without feeling like salespeople. Structured solution architecture reviews mid-contract frame capacity extensions as risk mitigation for the client’s own roadmap deadlines.',
       },
       {
         h: 'Protecting the 80%+ gross retention floor',
@@ -402,7 +402,7 @@ export const essays: Essay[] = [
     kicker: 'Operating philosophy',
     tags: ['Global operations', 'Client partner model', 'Systems thinking'],
     title: 'Bridging the delivery–commercial divide',
-    dek: 'Lessons from eight years operating across US, UK, UAE and Indian enterprise corridors.',
+    dek: 'Lessons from ten years operating across US, UK, UAE and Indian enterprise corridors.',
     thesis:
       'The most expensive failure mode in enterprise B2B is the air gap between what account executives promise in New York or London and what global engineering squads actually build.',
     sections: [
@@ -489,6 +489,6 @@ export const coffee = {
 
 export const sectionNotes = {
   advisory: 'four mandates,\nsame posture',
-  proof: 'the numbers that\nsurvived diligence',
+  proof: 'the numbers,\nas I track them',
   play: 'yes, the guitar\nis real',
 };

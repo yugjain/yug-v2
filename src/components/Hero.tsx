@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react';
+import { pending } from '../claims';
 import { profile } from '../content';
 import StickerBanner from './Stickers';
 import { ArrowUpRight, CalendarIcon, FileIcon, LinkedIn } from './Icons';
 
+/* +30% leads. Retention follows with its scope attached, because a bare
+   80% invites the "80% of what?" question. NRR is optional and only renders
+   once a real number exists in src/claims.ts. */
 const facts = [
+  { value: '+30%', label: 'ARR growth · $1.0M → $1.3M' },
+  { value: '80%+', label: 'gross retention · multi-year' },
   { value: '10 yrs', label: 'experience' },
-  { value: '$1.0M → $1.3M', label: 'ARR growth' },
-  { value: '80%+', label: 'gross retention' },
   { value: 'Salesforce', label: '+ MuleSoft' },
   { value: 'US / UK', label: 'hours overlap' },
+  ...(pending.nrr ? [{ value: pending.nrr, label: 'net revenue retention' }] : []),
 ];
 
 function useLocalTime() {
@@ -54,13 +59,17 @@ export default function Hero() {
       </p>
 
       <p className="mt-4 max-w-[44ch] text-[17px] font-medium leading-[1.45] tracking-[-0.012em] text-ink sm:text-[18px]">
-        I keep $1M+ enterprise SaaS portfolios renewing and growing.
+        I keep $1.0M+ enterprise SaaS portfolios renewing and growing.
       </p>
       <p className="mt-1.5 max-w-[54ch] text-[13.5px] leading-[1.6] text-muted">
         Engineer by training — I diagnose the integration before I sell the change order.
       </p>
 
-      <dl className="mt-4 grid grid-cols-2 gap-x-3 gap-y-3 border-y border-dashed border-line py-3 sm:grid-cols-5">
+      <dl
+        className={`mt-4 grid grid-cols-2 gap-x-3 gap-y-3 border-y border-dashed border-line py-3 ${
+          pending.nrr ? 'sm:grid-cols-6' : 'sm:grid-cols-5'
+        }`}
+      >
         {facts.map((f) => (
           <div key={f.label} className="min-w-0">
             <dt className="mono text-[11.5px] font-medium leading-tight tracking-[-0.01em] text-ink">

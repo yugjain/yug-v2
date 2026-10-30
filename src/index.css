@@ -82,6 +82,13 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Anchor targets clear the sticky top bar. */
+section[id],
+[id='ai'],
+[id='play'] {
+  scroll-margin-top: 60px;
+}
+
 body {
   margin: 0;
   background-color: var(--page);

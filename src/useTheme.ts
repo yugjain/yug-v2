@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export type Theme = 'light' | 'dark';
 
@@ -27,37 +27,48 @@ function readUrl(): Theme | null {
   }
 }
 
-function initial(): Theme {
-  if (typeof window === 'undefined') return 'light';
-  return readUrl() ?? readStored() ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+function systemTheme(): Theme {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(initial);
+  // Starts light on both server and client so prerendered markup hydrates
+  // cleanly; the prepaint script has already set the real class on <html>.
+  const [theme, setTheme] = useState<Theme>('light');
+  const chose = useRef(false);
 
+  // Resolve the real preference after hydration, without touching storage.
   useEffect(() => {
-    const root = document.documentElement;
-    root.classList.toggle('dark', theme === 'dark');
-    try {
-      window.localStorage.setItem(KEY, theme);
-    } catch {
-      // Not fatal — the class is what actually paints the page.
-    }
+    setTheme(readUrl() ?? readStored() ?? systemTheme());
+  }, []);
+
+  // Apply the resolved theme. Storage is only written by the toggle, so an
+  // OS-level change still works for visitors who never made a choice.
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', CHROME[theme]);
   }, [theme]);
 
-  // If the visitor has never made a choice, keep following the OS.
+  // Follow the OS while no choice has been saved.
   useEffect(() => {
     const query = window.matchMedia('(prefers-color-scheme: dark)');
     const onChange = (event: MediaQueryListEvent) => {
-      if (!readStored()) setTheme(event.matches ? 'dark' : 'light');
+      if (!chose.current && !readStored()) setTheme(event.matches ? 'dark' : 'light');
     };
     query.addEventListener('change', onChange);
     return () => query.removeEventListener('change', onChange);
   }, []);
 
-  return {
-    theme,
-    toggle: () => setTheme((current) => (current === 'dark' ? 'light' : 'dark')),
+  const toggle = () => {
+    const next: Theme = theme === 'dark' ? 'light' : 'dark';
+    chose.current = true;
+    try {
+      window.localStorage.setItem(KEY, next);
+    } catch {
+      // Not fatal — the class is what actually paints the page.
+    }
+    setTheme(next);
   };
+
+  return { theme, toggle };
 }

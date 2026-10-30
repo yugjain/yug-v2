@@ -27,7 +27,7 @@ function DeskScene() {
 
 export default function Footer() {
   return (
-    <footer className="section-rule px-5 py-6 sm:px-7">
+    <footer className="section-rule px-4 py-6 sm:px-7">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex items-center gap-3">
           <DeskScene />

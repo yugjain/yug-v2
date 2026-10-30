@@ -17,18 +17,27 @@ const facts = [
   ...(pending.nrr ? [{ value: pending.nrr, label: 'net revenue retention' }] : []),
 ];
 
+const IST = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Asia/Kolkata',
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false,
+});
+
+/* The prerendered HTML carries the time stamped by the inline script in
+   index.html. Reading it back during hydration keeps the first client render
+   identical to the DOM; on the server there is no document, so the slot is an
+   honest placeholder instead of a stale build-time clock. */
+function initialTime() {
+  if (typeof document === 'undefined') return '--:--';
+  const stamped = document.querySelector('[data-ist]')?.textContent?.trim();
+  return stamped ? stamped.replace(/\s*IST$/, '') : IST.format(new Date());
+}
+
 function useLocalTime() {
-  const [time, setTime] = useState('');
+  const [time, setTime] = useState(initialTime);
   useEffect(() => {
-    const tick = () =>
-      setTime(
-        new Intl.DateTimeFormat('en-GB', {
-          timeZone: 'Asia/Kolkata',
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: false,
-        }).format(new Date()),
-      );
+    const tick = () => setTime(IST.format(new Date()));
     tick();
     const id = setInterval(tick, 15_000);
     return () => clearInterval(id);
@@ -40,7 +49,7 @@ export default function Hero() {
   const time = useLocalTime();
 
   return (
-    <section id="top" className="px-5 pb-6 pt-7 sm:px-7 sm:pb-7 sm:pt-9">
+    <section id="top" className="px-4 pb-6 pt-7 sm:px-7 sm:pb-7 sm:pt-9">
       <StickerBanner />
 
       <div className="mt-1 flex items-center gap-2.5">
@@ -125,7 +134,9 @@ export default function Hero() {
       <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-dashed border-line pt-3.5 text-[12px] text-faint">
         <span className="inline-flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-          {profile.location} · <span className="mono">{time} IST</span>
+          {profile.location} ·{' '}
+          <span className="mono" data-ist suppressHydrationWarning>{`${time} IST`}</span>{' '}
+          · my time
         </span>
         <a href={`mailto:${profile.email}`} className="group inline-flex min-h-11 items-center gap-1 text-ink">
           <span className="link">Say hello</span>

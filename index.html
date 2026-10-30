@@ -9,6 +9,8 @@
       content="Yug Jain runs post-sales for a $1.0M+ ARR Salesforce & MuleSoft portfolio: +30% ARR expansion, 80%+ gross retention, executive QBRs. Open to US, UK & Ireland roles."
     />
     <link rel="canonical" href="https://yugjain.github.io/yug-v2/" />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Yug Jain" />
     <meta name="theme-color" content="#fbfbf8" />
     <link rel="icon" type="image/svg+xml" href="/yug-v2/favicon.svg" />
     <link rel="apple-touch-icon" href="/yug-v2/apple-touch-icon.png" />
@@ -33,6 +35,7 @@
       content="Post-sales governance for $1.0M+ ARR Salesforce & MuleSoft portfolios. +30% ARR, 80%+ gross retention."
     />
     <meta name="twitter:image" content="https://yugjain.github.io/yug-v2/og.png" />
+    <meta name="twitter:image:alt" content="Yug Jain — Enterprise Client Partner" />
 
     <script type="application/ld+json">
       {
@@ -43,17 +46,10 @@
         "url": "https://yugjain.github.io/yug-v2/",
         "image": "https://yugjain.github.io/yug-v2/og.png",
         "email": "mailto:yugrjain@gmail.com",
+        "description": "Yug Jain runs post-sales for a $1.0M+ ARR Salesforce & MuleSoft portfolio: +30% ARR expansion, 80%+ gross retention, executive QBRs.",
         "sameAs": ["https://www.linkedin.com/in/yugjain"],
-        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Mumbai University" },
-        "knowsAbout": [
-          "Enterprise Customer Success",
-          "Client Partner Governance",
-          "Net Revenue Retention",
-          "Salesforce",
-          "MuleSoft",
-          "Executive Steering Committees",
-          "Applied AI in Post-Sales"
-        ]
+        "worksFor": { "@type": "Organization", "name": "NTT DATA North America" },
+        "knowsAbout": ["Salesforce", "MuleSoft", "Customer success", "Executive QBRs"]
       }
     </script>
 
@@ -104,6 +100,23 @@
         </p>
       </div>
     </noscript>
+    <script>
+      // Stamp the IST clock before first paint. The prerendered slot starts as
+      // "--:--"; this replaces it with the real time, and Hero reads it back
+      // during hydration so nothing shifts.
+      (function () {
+        try {
+          var time = new Intl.DateTimeFormat('en-GB', {
+            timeZone: 'Asia/Kolkata',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+          }).format(new Date());
+          var el = document.querySelector('[data-ist]');
+          if (el) el.textContent = time + ' IST';
+        } catch (e) {}
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

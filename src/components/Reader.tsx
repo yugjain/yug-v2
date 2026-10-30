@@ -56,7 +56,7 @@ export default function Reader({ essay, onClose }: { essay: Essay; onClose: () =
         role="dialog"
         aria-modal="true"
         aria-labelledby={`paper-${essay.n}`}
-        className="reveal relative flex h-full w-full max-w-[600px] flex-col overflow-y-auto border-l border-line bg-paper px-6 py-6 sm:px-9 sm:py-8"
+        className="reveal relative flex h-full w-full max-w-[600px] flex-col overflow-y-auto border-l border-line bg-paper px-4 py-6 sm:px-9 sm:py-8"
       >
         <div className="mb-6 flex items-start justify-between gap-4">
           <span className="eyebrow">

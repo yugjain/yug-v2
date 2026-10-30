@@ -1,8 +1,9 @@
-import { useCallback, useState } from 'react';
+import { lazy, Suspense, useCallback, useState } from 'react';
 import { essays } from '../content';
-import Reader from './Reader';
 import Reveal from './Reveal';
 import Section from './Section';
+
+const Reader = lazy(() => import('./Reader'));
 
 const heights = [150, 138, 156];
 
@@ -41,7 +42,11 @@ export default function Writing() {
         Three papers, written before the meetings — not after.
       </p>
 
-      {open !== null && <Reader essay={essays[open]} onClose={close} />}
+      {open !== null && (
+        <Suspense fallback={null}>
+          <Reader essay={essays[open]} onClose={close} />
+        </Suspense>
+      )}
     </Section>
   );
 }

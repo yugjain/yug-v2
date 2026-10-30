@@ -264,6 +264,8 @@ export function LaptopSticker() {
 
 /* ------------------------------------------------------------------- ball */
 
+const round2 = (n: number) => Math.round(n * 100) / 100;
+
 function pentagon(cx: number, cy: number, r: number, rot = -90) {
   return Array.from({ length: 5 }, (_, i) => {
     const a = ((rot + i * 72) * Math.PI) / 180;
@@ -302,10 +304,10 @@ export function FootballSticker() {
         {petals.map((p) => (
           <line
             key={`l${p.rot}`}
-            x1={75 + 18 * Math.cos(((p.rot - 36) * Math.PI) / 180)}
-            y1={75 + 18 * Math.sin(((p.rot - 36) * Math.PI) / 180)}
-            x2={p.x}
-            y2={p.y}
+            x1={round2(75 + 18 * Math.cos(((p.rot - 36) * Math.PI) / 180))}
+            y1={round2(75 + 18 * Math.sin(((p.rot - 36) * Math.PI) / 180))}
+            x2={round2(p.x)}
+            y2={round2(p.y)}
             stroke={INK}
             strokeWidth="2.4"
             opacity="0.55"

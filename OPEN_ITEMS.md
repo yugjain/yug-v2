@@ -72,6 +72,15 @@ they are existing prose, not empty slots.
 
 - Re-publish is not automated from here. The site is live now; pushing to `main` triggers the
   workflow, but if Pages source is ever reset to *None*, re-select **GitHub Actions** first.
-- OG image is regenerated from the sticker hero at 1200×630. If you change the hero art, re-run
-  `node scripts/og.mjs`.
-- Lighthouse is a devDependency only; it is not shipped.
+- The build now prerenders the first paint into `dist/index.html`
+  (`vite build --ssr src/entry-server.tsx` → `node scripts/prerender.mjs` → React hydrates on
+  load). `dist-ssr/` is generated and gitignored. If a component ever branches on `window` during
+  its first render, hydration will warn — move that branch into an effect.
+- The IST clock is stamped by a tiny inline script in `index.html` before paint, then read back
+  during hydration. Keeping the stamp and `Hero.tsx` in sync avoids a first-paint flash.
+- OG image is regenerated from the sticker hero at 1200×630. If you change the hero art, run
+  `npm run preview -- --port 4173 --strictPort` in one terminal and `node scripts/og.mjs` in
+  another. The same script also writes `public/apple-touch-icon.png`.
+- `scripts/og.mjs` uses the system Chrome through `playwright-core` (a devDependency only). On a
+  machine without Chrome at the default macOS path, set `CHROME_PATH`.
+- Lighthouse is not a dependency; it was run with `npx lighthouse@12` and is not shipped.

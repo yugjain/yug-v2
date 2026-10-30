@@ -70,8 +70,10 @@ they are existing prose, not empty slots.
 
 ## 5. Follow-ups after this pass
 
-- Re-publish is not automated from here. The site is live now; pushing to `main` triggers the
-  workflow, but if Pages source is ever reset to *None*, re-select **GitHub Actions** first.
+- Pages is configured to deploy from **GitHub Actions** (`build_type=workflow`). Keep it there:
+  the repo root is source, so a branch-based Pages build would serve `index.html` with
+  `/src/main.tsx` instead of the built site. Every push to `main` triggers the workflow; use
+  `workflow_dispatch` to re-run it without a commit.
 - The build now prerenders the first paint into `dist/index.html`
   (`vite build --ssr src/entry-server.tsx` → `node scripts/prerender.mjs` → React hydrates on
   load). `dist-ssr/` is generated and gitignored. If a component ever branches on `window` during

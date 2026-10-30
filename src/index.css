@@ -1,5 +1,48 @@
 @import 'tailwindcss';
 
+/* Self-hosted latin subsets. Keeping the fonts on this origin removes a
+   render-blocking request to fonts.googleapis.com; Vite fingerprints the
+   files and rewrites these URLs for the /yug-v2/ base. */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('./assets/fonts/dm-sans-latin-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('./assets/fonts/geist-mono-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/instrument-serif-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/instrument-serif-latin-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('./assets/fonts/caveat-latin.woff2') format('woff2');
+}
+
 @theme inline {
   --color-paper: var(--paper);
   --color-page: var(--page);

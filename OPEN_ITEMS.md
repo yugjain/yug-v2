@@ -83,4 +83,7 @@ they are existing prose, not empty slots.
   another. The same script also writes `public/apple-touch-icon.png`.
 - `scripts/og.mjs` uses the system Chrome through `playwright-core` (a devDependency only). On a
   machine without Chrome at the default macOS path, set `CHROME_PATH`.
+- Fonts are self-hosted latin subsets in `src/assets/fonts/` so the critical path has no
+  `fonts.googleapis.com` request. If you add non-latin copy, add the matching subset or the
+  glyphs will fall back to the system font.
 - Lighthouse is not a dependency; it was run with `npx lighthouse@12` and is not shipped.

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { pending } from '../claims';
 import { profile } from '../content';
+import BookCTA from './BookCTA';
 import StickerBanner from './Stickers';
-import { ArrowUpRight, CalendarIcon, FileIcon, LinkedIn } from './Icons';
+import { ArrowUpRight, FileIcon, LinkedIn } from './Icons';
 
 /* +30% leads. Retention follows with its scope attached, because a bare
    80% invites the "80% of what?" question. NRR is optional and only renders
    once a real number exists in src/claims.ts. */
 const facts = [
-  { value: '+30%', label: 'ARR growth · $1.0M → $1.3M' },
+  { value: '+30%', label: 'ARR growth' },
   { value: '80%+', label: 'gross retention · multi-year' },
   { value: '10 yrs', label: 'experience' },
   { value: 'Salesforce', label: '+ MuleSoft' },
@@ -57,6 +58,12 @@ export default function Hero() {
       <p className="mono mt-2 text-[10.5px] uppercase tracking-[0.14em] text-faint">
         {profile.role} · {profile.roleLine}
       </p>
+      {pending.seeking && (
+        <p className="mt-2 max-w-[54ch] text-[13px] leading-snug text-muted">
+          <span className="mono text-[11px] uppercase tracking-[0.12em] text-faint">Seeking</span>{' '}
+          {pending.seeking}
+        </p>
+      )}
 
       <p className="mt-4 max-w-[44ch] text-[17px] font-medium leading-[1.45] tracking-[-0.012em] text-ink sm:text-[18px]">
         I keep $1.0M+ enterprise SaaS portfolios renewing and growing.
@@ -83,16 +90,7 @@ export default function Hero() {
       </dl>
 
       <div className="mt-5 flex flex-wrap items-center gap-2.5">
-        <a
-          href={profile.calendar}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-md bg-accent px-3.5 py-2 text-[13px] font-medium text-accent-ink transition-transform hover:-translate-y-px"
-        >
-          <CalendarIcon className="h-3.5 w-3.5" />
-          Book 15 min
-          <ArrowUpRight className="h-3 w-3" />
-        </a>
+        <BookCTA />
         {profile.resumeEnabled ? (
           <a
             href={profile.resume}
@@ -134,6 +132,10 @@ export default function Hero() {
           <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </a>
       </div>
+
+      {pending.workAuth && (
+        <p className="mono mt-2.5 text-[11.5px] leading-snug text-muted">{pending.workAuth}</p>
+      )}
 
       <ul className="mt-3 flex flex-wrap gap-1.5">
         {profile.status.map((s) => (

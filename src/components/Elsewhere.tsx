@@ -14,7 +14,7 @@ export default function Elsewhere() {
   return (
     <Section id="contact" eyebrow="Elsewhere" title="The short version" hint="Reply within a day">
       <p className="max-w-[62ch] text-[13px] leading-[1.75] text-muted">
-        Since 2016: success and operations across 25+ enterprise accounts, Deepstash’s first B2B motion, and
+        Since 2016: customer success and operations, Deepstash’s first B2B motion, and
         a $1M+ ARR portfolio at NTT DATA North America. The through-line is the same — make the post-sales
         system legible enough that renewal stops being a negotiation.
       </p>

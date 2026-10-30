@@ -1,4 +1,5 @@
 import { certifications, metrics, testimonials } from '../content';
+import BookCTA from './BookCTA';
 import Marginalia from './Marginalia';
 import Reveal from './Reveal';
 import Section from './Section';
@@ -39,7 +40,23 @@ export default function Proof() {
                   </blockquote>
                 </div>
                 <figcaption className="mt-3 border-t border-dashed border-line pt-2.5 text-[11px] text-faint">
-                  <span className="font-medium text-muted">{t.role}</span> · {t.org}
+                  {t.name ? (
+                    <>
+                      {t.href ? (
+                        <a href={t.href} target="_blank" rel="noreferrer" className="font-medium text-muted link">
+                          {t.name}
+                        </a>
+                      ) : (
+                        <span className="font-medium text-muted">{t.name}</span>
+                      )}
+                      {' · '}
+                      {t.role} · {t.company}
+                    </>
+                  ) : (
+                    <>
+                      <span className="font-medium text-muted">{t.role}</span> · {t.company}
+                    </>
+                  )}
                 </figcaption>
               </figure>
             </Reveal>
@@ -62,6 +79,11 @@ export default function Proof() {
             </li>
           ))}
         </ul>
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-dashed border-line pt-4">
+        <p className="text-[12.5px] text-muted">Want the working detail behind any of these?</p>
+        <BookCTA />
       </div>
     </Section>
   );

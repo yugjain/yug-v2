@@ -98,7 +98,12 @@ export default function Synthesizer() {
   };
 
   return (
-    <Section id="ai" eyebrow="Applied AI" title="The QBR synthesizer" hint="Move the inputs">
+    <Section
+      id="ai"
+      eyebrow="Account health model (illustrative)"
+      title="The QBR synthesizer"
+      hint="Move the inputs"
+    >
       <div className="mb-4">
         <p className="serif max-w-[46ch] text-[14px] italic leading-snug text-faint">
           “{quotes.synthesizer.text}”
@@ -285,7 +290,7 @@ export default function Synthesizer() {
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line bg-paper px-5 py-2.5">
           <p className="max-w-[40ch] text-[10.5px] leading-snug text-faint">
-            Illustrative model · no client data. Production runs on live telemetry.
+            Illustrative model · deterministic, no model call, no client data.
           </p>
           <button
             type="button"

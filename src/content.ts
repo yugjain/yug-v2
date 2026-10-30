@@ -66,7 +66,7 @@ export const roles: Role[] = [
     company: 'Deepstash',
     role: 'Customer Success Manager',
     tag: 'First B2B enterprise account',
-    impact: '50% faster onboarding · first B2B motion',
+    impact: 'First B2B motion · activation rebuild',
     years: '2020 — 2022',
     summary:
       'Built the company’s first B2B corporate motion alongside a consumer product with a large install base — turning enterprise onboarding into a repeatable, measured path to first value.',
@@ -74,16 +74,13 @@ export const roles: Role[] = [
       'Compressed enterprise onboarding cycles by 50% by rebuilding the activation path around customer milestones rather than product features.',
       'Pioneered the first B2B corporate team contracts, moving from consumer-only revenue to multi-seat agreements.',
     ],
-    stats: [
-      { k: '50%', v: 'Faster onboarding' },
-      { k: '1st', v: 'B2B contract motion' },
-    ],
+    stats: [{ k: '1st', v: 'B2B contract motion' }],
   },
   {
     n: '03',
     company: 'Office Pulse · CoWorkingOps · WorkAmp',
     role: 'Customer Success Specialist & Operations Manager',
-    tag: '25+ enterprise accounts',
+    tag: 'Workplace & coworking software',
     impact: '25+ enterprise accounts · ops to CS',
     years: '2016 — 2020',
     summary:
@@ -299,27 +296,40 @@ export const certifications = [
   { org: 'HubSpot', items: ['Sales Software', 'Inbound Sales'] },
 ];
 
-export const testimonials = [
+export type Testimonial = {
+  badge: string;
+  quote: string;
+  /** null until the person is named and consents — renders no name line. */
+  name: string | null;
+  role: string;
+  company: string;
+  href?: string;
+};
+
+export const testimonials: Testimonial[] = [
   {
     badge: '+30% portfolio ARR',
     quote:
       'Yug holds the room with enterprise VPs during Steering Committee negotiations, then pivots to diagnosing Salesforce and MuleSoft dependencies with engineering leads.',
+    name: null,
     role: 'Enterprise delivery & practice leadership',
-    org: 'NTT DATA North America portfolio · $1.0M+ ARR',
+    company: 'NTT DATA North America portfolio · $1.0M+ ARR',
   },
   {
     badge: 'Samsung · Unilever · Titan',
     quote:
       'He replaced reactive check-ins with telemetry-backed QBRs that directly protected multi-brand renewals across our Tier-1 logos.',
+    name: null,
     role: 'Executive leadership',
-    org: 'Series B enterprise SaaS · video commerce',
+    company: 'Series B enterprise SaaS · video commerce',
   },
   {
-    badge: '50% faster time-to-value',
+    badge: 'First B2B motion',
     quote:
       'Most CSMs manage tickets; Yug builds systems — 50% faster onboarding and our first B2B corporate contracts.',
+    name: null,
     role: 'Product & commercial leadership',
-    org: 'High-growth B2B SaaS & operations',
+    company: 'High-growth B2B SaaS & operations',
   },
 ];
 

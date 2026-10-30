@@ -15,19 +15,19 @@ export default function Lamp() {
         <svg viewBox="0 0 56 64" width="56" height="64" shapeRendering="crispEdges" aria-hidden>
           {/* glow */}
           <g opacity={on ? 1 : 0} style={{ transition: 'opacity 260ms ease' }}>
-            <path d="M18 26h20v12H18z" fill="#f2c14e" opacity="0.28" />
-            <path d="M22 38h12v10H22z" fill="#f2c14e" opacity="0.18" />
-            <path d="M25 48h6v8h-6z" fill="#f2c14e" opacity="0.1" />
+            <path d="M18 26h20v12H18z" fill="var(--lamp-glow)" opacity="0.28" />
+            <path d="M22 38h12v10H22z" fill="var(--lamp-glow)" opacity="0.18" />
+            <path d="M25 48h6v8h-6z" fill="var(--lamp-glow)" opacity="0.1" />
           </g>
 
           {/* shade */}
           <path
             d="M12 22h32v4H12zM15 26h26v3H15z"
-            fill={on ? '#f2c14e' : 'var(--line)'}
+            fill={on ? 'var(--lamp-glow)' : 'var(--line)'}
             style={{ transition: 'fill 260ms ease' }}
           />
-          <path d="M18 29h20v8H18z" fill={on ? '#f7d97a' : 'var(--paper)'} stroke="var(--ink)" strokeOpacity="0.5" strokeWidth="1" />
-          <path d="M22 33h12v3H22z" fill={on ? '#fff3c4' : 'var(--line)'} />
+          <path d="M18 29h20v8H18z" fill={on ? 'var(--lamp-shade)' : 'var(--paper)'} stroke="var(--ink)" strokeOpacity="0.5" strokeWidth="1" />
+          <path d="M22 33h12v3H22z" fill={on ? 'var(--lamp-core)' : 'var(--line)'} />
 
           {/* arm + base */}
           <path d="M28 12h4v10h-4z" fill="var(--ink)" opacity="0.55" />

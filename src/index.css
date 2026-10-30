@@ -26,6 +26,32 @@
   --accent-ink: #16250a;
   --dot: rgba(18, 18, 15, 0.1);
   --shadow: 0 1px 2px rgba(18, 18, 15, 0.04), 0 10px 30px -18px rgba(18, 18, 15, 0.22);
+
+  /* Illustration palette. Wood, coffee and lime are brand colours and stay
+     fixed; the paper/ink surfaces and the die-cut halo are what adapt. */
+  --wood-1: #e7b173;
+  --wood-2: #d79a56;
+  --wood-3: #b97b3d;
+  --wood-4: #8b5626;
+  --rosette: #f4ebdd;
+  --fretboard: #2a1a10;
+  --gold: #d3a04a;
+  --lamp-glow: #f2c14e;
+  --lamp-shade: #f7d97a;
+  --lamp-core: #fff3c4;
+  --st-ink: #1c1b18;
+  --st-halo: #ffffff;
+  --st-paper: #f8f3e8;
+  --st-paper-2: #ede6d5;
+  --st-shade: #dcd3bf;
+  --sticker-shadow: 0 10px 14px rgba(20, 18, 14, 0.16);
+  --coffee-1: #3e2617;
+  --coffee-2: #5c3a22;
+  --crema: #b98a5c;
+  --crema-dark: #7a5232;
+  --screen: #20272b;
+  --st-lime: #a3e635;
+  --shadow-ink: #141312;
   --radius: 8px;
   --frame: 48rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -44,6 +70,11 @@ html.dark {
   --dot: rgba(241, 241, 236, 0.08);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 36px -18px rgba(0, 0, 0, 0.9);
   color-scheme: dark;
+
+  /* The die-cut edge warms slightly and the drop shadow deepens, so the
+     sticker still reads as a physical object on a dark page. */
+  --st-halo: #f4efe4;
+  --sticker-shadow: 0 12px 18px rgba(0, 0, 0, 0.55);
 }
 
 html {
@@ -193,6 +224,7 @@ html.dark :focus-visible {
 .sticker {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  filter: drop-shadow(var(--sticker-shadow));
   transform: rotate(var(--tilt, 0deg)) translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1);
   transition: transform 0.32s var(--ease);
   will-change: transform;

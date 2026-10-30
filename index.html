@@ -64,12 +64,26 @@
       rel="stylesheet"
     />
     <script>
-      // Set the theme before first paint — no flash.
+      // Theme before first paint: class + browser chrome, no flash.
       (function () {
         try {
-          var stored = localStorage.getItem('yj-theme');
-          var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (dark) document.documentElement.classList.add('dark');
+          var params = new URLSearchParams(location.search);
+          var forced = params.get('theme');
+          var stored = null;
+          try {
+            stored = localStorage.getItem('yj-theme');
+          } catch (e) {}
+          var theme =
+            forced === 'dark' || forced === 'light'
+              ? forced
+              : stored === 'dark' || stored === 'light'
+                ? stored
+                : window.matchMedia('(prefers-color-scheme: dark)').matches
+                  ? 'dark'
+                  : 'light';
+          if (theme === 'dark') document.documentElement.classList.add('dark');
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#111112' : '#fbfbf8');
         } catch (e) {}
       })();
     </script>

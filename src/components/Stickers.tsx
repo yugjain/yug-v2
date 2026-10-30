@@ -3,19 +3,19 @@ import { useRef, useState, type CSSProperties, type ReactNode } from 'react';
 /* ------------------------------------------------------------------ palette */
 /* Sticker art keeps fixed ink-and-paper colours in both themes, the way a
    printed sticker would — only the drop shadow follows the theme. */
-const INK = '#1C1B18';
-const WHITE = '#FFFFFF';
-const CREAM = '#F8F3E8';
-const CREAM2 = '#EDE6D5';
-const SHADE = '#DCD3BF';
-const COFFEE = '#3E2617';
-const CREMA = '#B98A5C';
-const GOLD = '#D3A04A';
-const WOOD = '#D79A56';
-const WOOD2 = '#B97B3D';
-const WOOD3 = '#8B5626';
-const SCREEN = '#20272B';
-const LIME = '#A3E635';
+const INK = 'var(--st-ink)';
+const WHITE = 'var(--st-halo)';
+const CREAM = 'var(--st-paper)';
+const CREAM2 = 'var(--st-paper-2)';
+const SHADE = 'var(--st-shade)';
+const COFFEE = 'var(--coffee-1)';
+const CREMA = 'var(--crema)';
+const GOLD = 'var(--gold)';
+const WOOD = 'var(--wood-2)';
+const WOOD2 = 'var(--wood-3)';
+const WOOD3 = 'var(--wood-4)';
+const SCREEN = 'var(--screen)';
+const LIME = 'var(--st-lime)';
 
 /* Die-cut helpers: white halo first, artwork on top. */
 function Piece({
@@ -86,17 +86,17 @@ export function CoffeeSticker() {
     <Frame viewBox="0 0 170 190">
       <defs>
         <linearGradient id="cupBody" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#E9E1D0" />
-          <stop offset="22%" stopColor="#FDFAF3" />
-          <stop offset="72%" stopColor="#FBF6EB" />
-          <stop offset="100%" stopColor="#DED5C1" />
+          <stop offset="0%" stopColor="var(--st-paper-2)" />
+          <stop offset="22%" stopColor="var(--st-halo)" />
+          <stop offset="72%" stopColor="var(--st-paper)" />
+          <stop offset="100%" stopColor="var(--st-shade)" />
         </linearGradient>
         <linearGradient id="saucer" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FDFAF3" />
-          <stop offset="100%" stopColor="#E3DAC7" />
+          <stop offset="0%" stopColor="var(--st-halo)" />
+          <stop offset="100%" stopColor="var(--st-shade)" />
         </linearGradient>
         <radialGradient id="brew" cx="0.4" cy="0.3" r="0.9">
-          <stop offset="0%" stopColor="#5C3A22" />
+          <stop offset="0%" stopColor="var(--coffee-2)" />
           <stop offset="100%" stopColor={COFFEE} />
         </radialGradient>
       </defs>
@@ -126,7 +126,7 @@ export function CoffeeSticker() {
       <DieEllipse cx={85} cy={94} rx={38} ry={11} fill={CREAM} />
       <ellipse cx="85" cy="94" rx="31" ry="8.5" fill="url(#brew)" />
       <path d="M62 92c6-3 14-4 22-4s16 1 22 4" fill="none" stroke={CREMA} strokeWidth="2.6" opacity="0.9" />
-      <ellipse cx="76" cy="90" rx="6" ry="2" fill="#7A5232" opacity="0.8" />
+      <ellipse cx="76" cy="90" rx="6" ry="2" fill="var(--crema-dark)" opacity="0.8" />
 
       {/* steam */}
       <g fill="none" stroke={SHADE} strokeWidth="3.4" strokeLinecap="round" opacity="0.9">
@@ -145,7 +145,7 @@ export function GuitarSticker() {
     <Frame viewBox="0 0 210 130">
       <defs>
         <linearGradient id="woodTop" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#E7B173" />
+          <stop offset="0%" stopColor="var(--wood-1)" />
           <stop offset="45%" stopColor={WOOD} />
           <stop offset="100%" stopColor={WOOD2} />
         </linearGradient>
@@ -166,13 +166,13 @@ export function GuitarSticker() {
 
         {/* soundhole + rosette */}
         <circle cx="52" cy="65" r="17" fill="none" stroke={GOLD} strokeWidth="2.2" opacity="0.85" />
-        <circle cx="52" cy="65" r="13.5" fill="#F4EBDD" stroke={INK} strokeWidth="2.6" />
-        <circle cx="52" cy="65" r="9" fill="#2A1A10" />
+        <circle cx="52" cy="65" r="13.5" fill="var(--rosette)" stroke={INK} strokeWidth="2.6" />
+        <circle cx="52" cy="65" r="9" fill="var(--fretboard)" />
 
         {/* pickguard */}
         <path d="M74 52c14 2 20 14 14 28-8-8-14-12-20-14z" fill={INK} opacity="0.85" />
         {/* bridge */}
-        <rect x="20" y="60" width="9" height="11" rx="2" fill="#2A1A10" />
+        <rect x="20" y="60" width="9" height="11" rx="2" fill="var(--fretboard)" />
         <rect x="21" y="56" width="7" height="4" rx="1.5" fill={CREAM} opacity="0.8" />
 
         {/* neck */}
@@ -206,12 +206,12 @@ export function LaptopSticker() {
     <Frame viewBox="0 0 200 150">
       <defs>
         <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FDFBF5" />
-          <stop offset="100%" stopColor="#E8E1D1" />
+          <stop offset="0%" stopColor="var(--st-halo)" />
+          <stop offset="100%" stopColor="var(--st-paper-2)" />
         </linearGradient>
         <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#F6F1E4" />
-          <stop offset="100%" stopColor="#DCD3BF" />
+          <stop offset="0%" stopColor="var(--st-paper)" />
+          <stop offset="100%" stopColor="var(--st-shade)" />
         </linearGradient>
       </defs>
 
@@ -237,7 +237,7 @@ export function LaptopSticker() {
       {/* base */}
       <path
         d="M20 91h160l-8 19H28z"
-        fill="#E9E1D0"
+        fill="var(--st-paper-2)"
         stroke={INK}
         strokeWidth="3"
         strokeLinejoin="round"
@@ -256,7 +256,7 @@ export function LaptopSticker() {
           />
         )),
       )}
-      <path d="M28 110h144l4 6H24z" fill="#D6CCB6" stroke={INK} strokeWidth="3" strokeLinejoin="round" />
+      <path d="M28 110h144l4 6H24z" fill="var(--st-shade)" stroke={INK} strokeWidth="3" strokeLinejoin="round" />
       <path d="M88 92h24" stroke={INK} strokeWidth="2" opacity="0.25" />
     </Frame>
   );
@@ -281,7 +281,7 @@ export function FootballSticker() {
     <Frame viewBox="0 0 150 150">
       <defs>
         <radialGradient id="ballShade" cx="0.34" cy="0.28" r="0.85">
-          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="0%" stopColor="var(--st-halo)" />
           <stop offset="62%" stopColor={CREAM} />
           <stop offset="100%" stopColor={SHADE} />
         </radialGradient>
@@ -401,7 +401,7 @@ function Sticker({ label, tilt, left, top, width, depth, px, py, z = 1, children
   return (
     <div
       ref={ref}
-      className="sticker absolute block drop-shadow-[0_10px_14px_rgba(20,18,14,0.16)]"
+      className="sticker absolute block"
       style={style}
       onClick={poke}
       aria-hidden

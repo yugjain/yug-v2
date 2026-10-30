@@ -62,12 +62,12 @@ function Guitar() {
         >
           <defs>
             <linearGradient id="rim2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#E7B173" />
-              <stop offset="45%" stopColor="#D79A56" />
-              <stop offset="100%" stopColor="#B97B3D" />
+              <stop offset="0%" stopColor="var(--wood-1)" />
+              <stop offset="45%" stopColor="var(--wood-2)" />
+              <stop offset="100%" stopColor="var(--wood-3)" />
             </linearGradient>
             <filter id="soft2" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="var(--ink)" floodOpacity="0.1" />
+              <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="var(--shadow-ink)" floodOpacity="0.28" />
             </filter>
           </defs>
 
@@ -100,10 +100,10 @@ function Guitar() {
               strokeWidth="1"
             />
           </g>
-          <circle cx="98" cy="85" r="19" fill="none" stroke="#D3A04A" strokeWidth="1.8" opacity="0.8" />
-          <circle cx="98" cy="85" r="15" fill="#F4EBDD" stroke="var(--ink)" strokeOpacity="0.55" strokeWidth="1.4" />
-          <circle cx="98" cy="85" r="9" fill="#2A1A10" />
-          <rect x="46" y="78" width="11" height="13" rx="2" fill="#2A1A10" opacity="0.85" />
+          <circle cx="98" cy="85" r="19" fill="none" stroke="var(--gold)" strokeWidth="1.8" opacity="0.8" />
+          <circle cx="98" cy="85" r="15" fill="var(--rosette)" stroke="var(--ink)" strokeOpacity="0.55" strokeWidth="1.4" />
+          <circle cx="98" cy="85" r="9" fill="var(--fretboard)" />
+          <rect x="46" y="78" width="11" height="13" rx="2" fill="var(--fretboard)" opacity="0.85" />
 
           {[0, 1, 2, 3, 4, 5].map((i) => {
             const y = 75 + i * 4;

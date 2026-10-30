@@ -29,7 +29,7 @@ export default function Elsewhere() {
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-[12.5px] font-medium text-ink">{item.label}</span>
-                <span className="mono block truncate text-[10px] text-faint">{item.handle}</span>
+                <span className="mono block truncate text-[12px] text-faint">{item.handle}</span>
               </span>
               <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </>
@@ -64,17 +64,17 @@ export default function Elsewhere() {
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px]">
-        <a href={`mailto:${profile.email}`} className="link">
+        <a href={`mailto:${profile.email}`} className="link inline-flex min-h-11 items-center">
           {profile.email}
         </a>
         {profile.resumeEnabled ? (
-          <a href={profile.resume} target="_blank" rel="noreferrer" className="link">
+          <a href={profile.resume} target="_blank" rel="noreferrer" className="link inline-flex min-h-11 items-center">
             Full résumé (PDF)
           </a>
         ) : (
           <span className="text-faint select-none">Full résumé (PDF) · on request</span>
         )}
-        <a href={profile.calendar} target="_blank" rel="noreferrer" className="link">
+        <a href={profile.calendar} target="_blank" rel="noreferrer" className="link inline-flex min-h-11 items-center">
           Book 15 minutes
         </a>
       </div>

@@ -33,7 +33,7 @@ export default function App() {
         Skip to content
       </a>
 
-      <div className="sheet pb-14 sm:pb-0">
+      <div className="sheet pb-16 sm:pb-0">
         <TopBar />
         <main id="main">
           <Hero />

@@ -26,7 +26,7 @@ export default function Advisory() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-3">
                     <h3 className="text-[14px] font-medium tracking-[-0.01em]">{item.name}</h3>
-                    <span className="mono text-[10px] uppercase tracking-[0.1em] text-faint">
+                    <span className="mono text-[12px] uppercase tracking-[0.1em] text-faint">
                       {advisoryTag}
                     </span>
                   </div>
@@ -43,14 +43,14 @@ export default function Advisory() {
 
                   {item.clients && (
                     <div className="mt-3">
-                      <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">
+                      <p className="mono text-[12px] uppercase tracking-[0.14em] text-faint">
                         Accounts advised
                       </p>
                       <ul className="mt-1.5 flex flex-wrap gap-1.5">
                         {item.clients.map((c) => (
                           <li
                             key={c}
-                            className="rounded-md border border-dashed border-line px-2 py-0.5 text-[11px] text-muted"
+                            className="rounded-md border border-dashed border-line px-2 py-0.5 text-[12px] text-muted"
                           >
                             {c}
                           </li>
@@ -64,7 +64,7 @@ export default function Advisory() {
                       {item.stats.map((s) => (
                         <div key={s.v}>
                           <dt className="mono text-[12px] font-medium text-ink">{s.k}</dt>
-                          <dd className="mt-0.5 text-[10px] uppercase leading-tight tracking-[0.06em] text-faint">
+                          <dd className="mt-0.5 text-[12px] uppercase leading-tight tracking-[0.06em] text-faint">
                             {s.v}
                           </dd>
                         </div>
@@ -74,7 +74,7 @@ export default function Advisory() {
 
                   <div className="mt-3 space-y-3">
                     <div>
-                      <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">
+                      <p className="mono text-[12px] uppercase tracking-[0.14em] text-faint">
                         01 / The bottleneck
                       </p>
                       <p className="mt-1 max-w-[64ch] text-[12.5px] leading-[1.7] text-muted">
@@ -83,13 +83,13 @@ export default function Advisory() {
                     </div>
 
                     <div>
-                      <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">
+                      <p className="mono text-[12px] uppercase tracking-[0.14em] text-faint">
                         02 / What I built
                       </p>
                       <ol className="mt-1.5 space-y-2">
                         {item.systems.map((s, idx) => (
                           <li key={s.title} className="flex gap-2.5">
-                            <span className="mono mt-0.5 inline-grid h-4 w-4 shrink-0 place-items-center rounded-full bg-accent text-[9px] text-accent-ink">
+                            <span className="mono mt-0.5 inline-grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent text-[12px] text-accent-ink">
                               {idx + 1}
                             </span>
                             <div>
@@ -104,7 +104,7 @@ export default function Advisory() {
                     </div>
 
                     <div>
-                      <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">
+                      <p className="mono text-[12px] uppercase tracking-[0.14em] text-faint">
                         03 / The outcome
                       </p>
                       <p className="mt-1 max-w-[64ch] text-[12.5px] leading-[1.7] text-muted">

@@ -10,7 +10,7 @@ export default function Lamp() {
         aria-pressed={on}
         aria-label={on ? 'Switch the desk lamp off' : 'Switch the desk lamp on'}
         onClick={() => setOn((v) => !v)}
-        className="group flex flex-col items-center rounded-lg px-2 py-1 outline-none transition-transform duration-200 hover:-translate-y-0.5 active:scale-95"
+        className="group flex flex-col items-center rounded-lg px-2 py-1 transition-transform duration-200 hover:-translate-y-0.5 active:scale-95"
       >
         <svg viewBox="0 0 56 64" width="56" height="64" shapeRendering="crispEdges" aria-hidden>
           {/* glow */}

@@ -8,10 +8,10 @@ export default function Closing() {
         <p className="serif mx-auto max-w-[24ch] text-[24px] italic leading-[1.28] tracking-[-0.01em] text-ink sm:text-[30px]">
           “{quotes.closing.text}”
         </p>
-        <p className="mono mt-4 text-[9.5px] uppercase tracking-[0.16em] text-faint">
+        <p className="mono mt-4 text-[12px] uppercase tracking-[0.16em] text-faint">
           {quotes.closing.who}
         </p>
-        <p className="serif mt-1 text-[11.5px] italic text-faint">{quotes.closing.source}</p>
+        <p className="serif mt-1 text-[12px] italic text-faint">{quotes.closing.source}</p>
       </Reveal>
     </section>
   );

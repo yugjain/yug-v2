@@ -20,7 +20,7 @@
   --page: #f1f1ea;
   --ink: #12120f;
   --muted: #55554e;
-  --faint: #6f6f68;
+  --faint: #6c6c64;
   --line: #dddcd1;
   --accent: #a3e635;
   --accent-ink: #16250a;
@@ -111,6 +111,16 @@ html.dark :focus-visible {
   outline-color: var(--accent);
 }
 
+/* Focus on a <g> inside the guitar SVG: outline around the string group. */
+.string:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+html.dark .string:focus-visible {
+  outline-color: var(--accent);
+}
+
 /* ---------------------------------------------------------------- frame */
 
 .sheet {
@@ -144,8 +154,8 @@ html.dark :focus-visible {
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--faint);
   display: inline-flex;
@@ -267,7 +277,7 @@ input[type='range'] {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 24px;
+  height: 44px;
   background: transparent;
   cursor: pointer;
 }

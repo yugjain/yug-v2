@@ -11,16 +11,16 @@ export default function Work() {
           <li key={role.company} className="border-b border-dashed border-line last:border-b-0">
             <details className="group">
               <summary className="flex cursor-pointer list-none items-start gap-3 rounded-md py-3.5 transition-colors hover:bg-line/20 [&::-webkit-details-marker]:hidden">
-                <span className="mono mt-0.5 w-5 shrink-0 text-[10.5px] text-faint">{role.n}</span>
+                <span className="mono mt-0.5 w-5 shrink-0 text-[12px] text-faint">{role.n}</span>
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-3">
                     <h3 className="text-[14px] font-medium tracking-[-0.01em]">{role.company}</h3>
-                    <span className="mono text-[10px] uppercase tracking-[0.1em] text-faint">
+                    <span className="mono text-[12px] uppercase tracking-[0.1em] text-faint">
                       {role.years}
                     </span>
                   </div>
                   <p className="mt-0.5 text-[12.5px] text-muted">{role.role}</p>
-                  <p className="mono mt-0.5 text-[10px] uppercase tracking-[0.08em] text-faint">
+                  <p className="mono mt-0.5 text-[12px] uppercase tracking-[0.08em] text-faint">
                     {role.impact}
                   </p>
                 </div>
@@ -47,7 +47,7 @@ export default function Work() {
                       {role.stats.map((s) => (
                         <div key={s.v} className="flex items-baseline gap-1.5">
                           <dt className="mono text-[12px] font-medium text-ink">{s.k}</dt>
-                          <dd className="text-[11px] text-faint">{s.v}</dd>
+                          <dd className="text-[12px] text-faint">{s.v}</dd>
                         </div>
                       ))}
                     </dl>

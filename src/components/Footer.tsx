@@ -31,18 +31,18 @@ export default function Footer() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex items-center gap-3">
           <DeskScene />
-          <p className="text-[11.5px] text-faint">
+          <p className="text-[12px] text-faint">
             Made in Mumbai · <span className="mono">© {new Date().getFullYear()}</span> {profile.name}
           </p>
         </div>
-        <div className="flex items-center gap-4 text-[11.5px] text-faint">
-          <a href={`mailto:${profile.email}`} className="transition-colors hover:text-ink">
+        <div className="flex flex-wrap items-center gap-x-4 text-[12px] text-faint">
+          <a href={`mailto:${profile.email}`} className="inline-flex min-h-11 items-center transition-colors hover:text-ink">
             Email
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-ink">
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center transition-colors hover:text-ink">
             LinkedIn
           </a>
-          <a href="#top" className="transition-colors hover:text-ink">
+          <a href="#top" className="inline-flex min-h-11 items-center transition-colors hover:text-ink">
             Back to top ↑
           </a>
         </div>

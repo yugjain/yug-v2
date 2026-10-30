@@ -20,7 +20,7 @@ export default function Proof() {
           >
             <dt className="text-[28px] font-medium leading-none tracking-[-0.03em]">{m.k}</dt>
             <dd className="mt-1 text-[12px] font-medium text-ink">{m.v}</dd>
-            <dd className="mt-0.5 max-w-[30ch] text-[11.5px] leading-[1.55] text-faint">{m.note}</dd>
+            <dd className="mt-0.5 max-w-[30ch] text-[12px] leading-[1.55] text-faint">{m.note}</dd>
           </div>
         ))}
       </dl>
@@ -32,14 +32,14 @@ export default function Proof() {
             <Reveal key={t.role} delay={i * 60} className={i === 2 ? 'sm:col-span-2' : ''}>
               <figure className="card flex h-full flex-col justify-between p-4">
                 <div>
-                  <span className="mono text-[9.5px] uppercase tracking-[0.1em] text-accent-ink">
+                  <span className="mono text-[12px] uppercase tracking-[0.1em] text-accent-ink">
                     <span className="rounded-full bg-accent px-2 py-0.5">{t.badge}</span>
                   </span>
                   <blockquote className="mt-2.5 max-w-[70ch] text-[12.5px] leading-[1.7] text-ink/90">
                     “{t.quote}”
                   </blockquote>
                 </div>
-                <figcaption className="mt-3 border-t border-dashed border-line pt-2.5 text-[11px] text-faint">
+                <figcaption className="mt-3 border-t border-dashed border-line pt-2.5 text-[12px] text-faint">
                   {t.name ? (
                     <>
                       {t.href ? (
@@ -72,7 +72,7 @@ export default function Proof() {
               key={c.org}
               className="flex items-baseline justify-between gap-3 border-b border-dashed border-line py-1.5 last:border-b-0"
             >
-              <span className="mono shrink-0 text-[9.5px] uppercase tracking-[0.1em] text-faint">
+              <span className="mono shrink-0 text-[12px] uppercase tracking-[0.1em] text-faint">
                 {c.org}
               </span>
               <span className="text-right text-[12px] text-muted">{c.items.join(' · ')}</span>

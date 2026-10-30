@@ -108,7 +108,7 @@ export default function Synthesizer() {
         <p className="serif max-w-[46ch] text-[14px] italic leading-snug text-faint">
           “{quotes.synthesizer.text}”
         </p>
-        <p className="mono mt-1 text-[9px] uppercase tracking-[0.14em] text-faint">
+        <p className="mono mt-1 text-[12px] uppercase tracking-[0.14em] text-faint">
           — {quotes.synthesizer.who}
         </p>
       </div>
@@ -122,7 +122,7 @@ export default function Synthesizer() {
         <div className="grid gap-px bg-line lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
         {/* Controls */}
         <div className="bg-paper p-5">
-          <p className="mono mb-4 text-[10px] uppercase tracking-[0.14em] text-faint">Signals</p>
+          <p className="mono mb-4 text-[12px] uppercase tracking-[0.14em] text-faint">Signals</p>
 
           <div className="space-y-5">
             <div>
@@ -173,16 +173,20 @@ export default function Synthesizer() {
                 role="switch"
                 aria-checked={sponsor}
                 onClick={() => setSponsor((v) => !v)}
-                className={`relative h-6 w-11 shrink-0 rounded-full border transition-colors ${
-                  sponsor ? 'border-accent bg-accent' : 'border-line bg-line/50'
-                }`}
+                className="relative grid h-11 w-11 shrink-0 place-items-center rounded-md"
               >
                 <span className="sr-only">Executive sponsor changed</span>
                 <span
-                  className={`absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full transition-all ${
-                    sponsor ? 'left-[calc(100%-20px)] bg-accent-ink' : 'left-1 bg-faint'
+                  className={`relative block h-6 w-11 rounded-full border transition-colors ${
+                    sponsor ? 'border-accent bg-accent' : 'border-line bg-line/50'
                   }`}
-                />
+                >
+                  <span
+                    className={`absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full transition-all ${
+                      sponsor ? 'left-[calc(100%-20px)] bg-accent-ink' : 'left-1 bg-faint'
+                    }`}
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -194,7 +198,7 @@ export default function Synthesizer() {
               setTickets(5);
               setSponsor(false);
             }}
-            className="mono mt-5 text-[10.5px] uppercase tracking-[0.12em] text-faint underline decoration-line underline-offset-4 transition-colors hover:text-ink"
+            className="mono mt-4 inline-flex min-h-11 items-center text-[12px] uppercase tracking-[0.12em] text-faint underline decoration-line underline-offset-4 transition-colors hover:text-ink"
           >
             Reset to baseline
           </button>
@@ -206,7 +210,7 @@ export default function Synthesizer() {
               <span className="w-[20%] bg-amber-400/80" />
               <span className="w-[23%] bg-accent" />
             </div>
-            <div className="mono mt-1 flex justify-between text-[8px] uppercase tracking-[0.08em] text-faint">
+            <div className="mono mt-1 flex justify-between text-[12px] uppercase tracking-[0.08em] text-faint">
               <span>Critical</span>
               <span>At risk</span>
               <span>Watch</span>
@@ -214,7 +218,7 @@ export default function Synthesizer() {
             </div>
           </div>
 
-          <p className="mt-4 border-t border-line pt-3 text-[11px] leading-[1.6] text-faint">
+          <p className="mt-4 border-t border-line pt-3 text-[12px] leading-[1.6] text-faint">
             Baseline 84, minus adoption drift, P1 load and sponsor continuity. Deterministic — no model
             call, no client data.
           </p>
@@ -224,13 +228,13 @@ export default function Synthesizer() {
         <div className="bg-paper p-5">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="mono text-[10px] uppercase tracking-[0.14em] text-faint">Executive brief</p>
+              <p className="mono text-[12px] uppercase tracking-[0.14em] text-faint">Executive brief</p>
               <p className="mt-1 flex items-baseline gap-2">
                 <span className="text-[30px] font-medium leading-none tracking-[-0.03em]">{score}</span>
-                <span className="text-[11px] text-faint">/ 100 account health</span>
+                <span className="text-[12px] text-faint">/ 100 account health</span>
               </p>
             </div>
-            <span className={`rounded-full px-2.5 py-1 text-[10.5px] font-medium ${verdict.tone}`}>
+            <span className={`rounded-full px-2.5 py-1 text-[12px] font-medium ${verdict.tone}`}>
               {verdict.label}
             </span>
           </div>
@@ -254,12 +258,12 @@ export default function Synthesizer() {
           </div>
 
           <div className="mt-4 rounded-lg border border-line bg-line/25 px-3 py-2">
-            <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">Lead with</p>
+            <p className="mono text-[12px] uppercase tracking-[0.14em] text-faint">Lead with</p>
             <p className="mt-0.5 text-[12.5px] text-ink">{lead}</p>
           </div>
 
           <div className="mt-4">
-            <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">Talking points</p>
+            <p className="mono text-[12px] uppercase tracking-[0.14em] text-faint">Talking points</p>
             <ul className="mt-1.5 space-y-1.5">
               {points.map((p) => (
                 <li key={p} className="flex gap-2 text-[12.5px] leading-[1.55] text-muted">
@@ -271,31 +275,32 @@ export default function Synthesizer() {
           </div>
 
           <div className="mt-4">
-            <p className="mono text-[9.5px] uppercase tracking-[0.14em] text-faint">Before the meeting</p>
+            <p className="mono text-[12px] uppercase tracking-[0.14em] text-faint">Before the meeting</p>
             <ul className="mt-1.5 space-y-1.5">
               {actions.map((a) => (
                 <li key={a} className="flex gap-2 text-[12.5px] leading-[1.55] text-muted">
-                  <span className="mono mt-px text-[10px] text-faint">→</span>
+                  <span className="mono mt-px text-[12px] text-faint">→</span>
                   {a}
                 </li>
               ))}
             </ul>
           </div>
 
-          <p className="sr-only" aria-live="polite">
-            Health {score} of 100. {verdict.label}.
+          <p className="sr-only" aria-live="polite" aria-atomic="true">
+            Health {score} of 100. {verdict.label}. Lead with: {lead}.{' '}
+            {points[0] ? `First talking point: ${points[0]}` : ''}
           </p>
         </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line bg-paper px-5 py-2.5">
-          <p className="max-w-[40ch] text-[10.5px] leading-snug text-faint">
+          <p className="max-w-[40ch] text-[12px] leading-snug text-faint">
             Illustrative model · deterministic, no model call, no client data.
           </p>
           <button
             type="button"
             onClick={copy}
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line px-2.5 py-1 text-[11px] text-muted transition-colors hover:border-ink/40 hover:text-ink"
+            className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border border-line px-3 py-2 text-[12px] text-muted transition-colors hover:border-ink/40 hover:text-ink"
           >
             {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
             {copied ? 'Copied' : 'Copy brief'}
@@ -308,6 +313,6 @@ export default function Synthesizer() {
 
 function Chip({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-full border border-line px-2 py-0.5 mono text-[10.5px] text-faint">{children}</span>
+    <span className="rounded-full border border-line px-2 py-0.5 mono text-[12px] text-faint">{children}</span>
   );
 }

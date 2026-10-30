@@ -34,7 +34,7 @@ function Guitar() {
           <h3 className="mt-1 text-[14px] font-medium">
             {song.title} <span className="text-faint">· {song.artist}</span>
           </h3>
-          <p className="mt-0.5 max-w-[52ch] text-[11.5px] leading-relaxed text-muted">{song.note}</p>
+          <p className="mt-0.5 max-w-[52ch] text-[12px] leading-relaxed text-muted">{song.note}</p>
         </div>
         <button
           type="button"
@@ -42,7 +42,7 @@ function Guitar() {
             setPlaying((p) => !p);
             if (playing) setStep(-1);
           }}
-          className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[11.5px] transition-colors ${
+          className={`inline-flex min-h-11 items-center gap-1.5 rounded-md px-3 py-2 text-[12px] transition-colors ${
             playing
               ? 'bg-accent text-accent-ink'
               : 'border border-line text-ink hover:border-ink/40 hover:bg-line/40'
@@ -114,7 +114,7 @@ function Guitar() {
                 role="button"
                 tabIndex={0}
                 aria-label={`String ${i + 1}`}
-                className="cursor-pointer outline-none"
+                className="string cursor-pointer"
                 onClick={() => flick(i)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
@@ -143,12 +143,12 @@ function Guitar() {
       <div className="px-4 py-3.5">
         <div className="rounded-md border border-dashed border-line p-2.5">
           <div className="mb-1 flex items-center gap-1">
-            <span className="w-7" />
+            <span className="w-9" />
             <div className="grid flex-1" style={{ gridTemplateColumns: 'repeat(16, minmax(0, 1fr))' }}>
               {Array.from({ length: 16 }).map((_, i) => (
                 <span
                   key={i}
-                  className={`mono text-center text-[8px] text-faint ${i % 4 === 0 ? 'opacity-100' : 'opacity-0'}`}
+                  className={`mono text-center text-[12px] text-faint ${i % 4 === 0 ? 'opacity-100' : 'opacity-0'}`}
                 >
                   {i / 4 + 1}
                 </span>
@@ -158,7 +158,7 @@ function Guitar() {
 
           {LANES.map((lane) => (
             <div key={lane} className="flex items-center gap-1">
-              <span className="mono w-7 shrink-0 text-[8.5px] uppercase tracking-[0.06em] text-faint">
+              <span className="mono w-9 shrink-0 text-[12px] uppercase tracking-[0.02em] text-faint">
                 {lane}
               </span>
               <div
@@ -192,7 +192,7 @@ function Guitar() {
         </div>
 
         <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
-          <p className="mono text-[9px] uppercase tracking-[0.12em] text-faint">
+          <p className="mono text-[12px] uppercase tracking-[0.12em] text-faint">
             T thumb · i index · m middle · slap · {song.bpm} bpm
           </p>
         </div>
@@ -275,13 +275,18 @@ function Pitch() {
               aria-label={p.role}
               aria-pressed={active === i}
               style={{ left: `${p.x}%`, top: `${p.y}%` }}
-              className={`absolute grid h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border text-[9px] transition-all duration-300 ${
-                active === i
-                  ? 'border-accent bg-accent text-accent-ink'
-                  : 'border-ink/25 bg-paper text-faint hover:border-ink/50'
-              }`}
+              className="absolute grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full"
             >
-              {i + 1}
+              <span
+                aria-hidden
+                className={`grid h-7 w-7 place-items-center rounded-full border text-[12px] transition-colors duration-300 ${
+                  active === i
+                    ? 'border-accent bg-accent text-accent-ink'
+                    : 'border-ink/25 bg-paper text-faint'
+                }`}
+              >
+                {i + 1}
+              </span>
             </button>
           ))}
 
@@ -304,7 +309,7 @@ function Pitch() {
           {active + 1}. {role.role}
         </p>
         <p className="mt-0.5 min-h-[2.4rem] text-[12px] leading-[1.55] text-muted">{role.note}</p>
-        <p className="serif text-[11.5px] italic text-faint">Drag the ball, or tap a shirt.</p>
+        <p className="serif text-[12px] italic text-faint">Drag the ball, or tap a shirt.</p>
       </div>
     </div>
   );
@@ -400,7 +405,7 @@ function Coffee() {
             <path d="M82 98 c-3 -4 3 -7 0 -11" />
           </g>
         </svg>
-        <p className="serif text-[11.5px] italic text-faint">inverted · 200°F · 18g</p>
+        <p className="serif text-[12px] italic text-faint">inverted · 200°F · 18g</p>
       </div>
 
       <div className="px-4 pb-3.5 pt-3">
@@ -410,7 +415,7 @@ function Coffee() {
             return (
               <li key={s.label} className="flex items-start gap-2">
                 <span
-                  className={`mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full border text-[9px] ${
+                  className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border text-[12px] ${
                     state === 'done'
                       ? 'border-accent bg-accent text-accent-ink'
                       : state === 'now'
@@ -420,9 +425,9 @@ function Coffee() {
                 >
                   {state === 'done' ? <Check className="h-2.5 w-2.5" /> : i + 1}
                 </span>
-                <span className={`text-[11.5px] leading-snug ${state === 'todo' ? 'text-faint' : 'text-ink'}`}>
+                <span className={`text-[12px] leading-snug ${state === 'todo' ? 'text-faint' : 'text-ink'}`}>
                   {s.label}
-                  {state === 'now' && <span className="block text-[10.5px] text-muted">{s.note}</span>}
+                  {state === 'now' && <span className="block text-[12px] text-muted">{s.note}</span>}
                 </span>
               </li>
             );
@@ -432,7 +437,7 @@ function Coffee() {
         <button
           type="button"
           onClick={advance}
-          className="mt-2.5 w-full rounded-md border border-dashed border-line py-1.5 text-[11px] text-muted transition-colors hover:border-ink/40 hover:bg-line/40 hover:text-ink"
+          className="mt-2.5 flex min-h-11 w-full items-center justify-center rounded-md border border-dashed border-line px-3 py-2 text-[12px] text-muted transition-colors hover:border-ink/40 hover:bg-line/40 hover:text-ink"
         >
           {done ? 'Brew another' : step === coffee.steps.length - 1 ? 'Press' : `Next: ${coffee.steps[step + 1].label}`}
         </button>

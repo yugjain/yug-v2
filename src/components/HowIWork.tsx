@@ -13,8 +13,8 @@ export default function HowIWork() {
             <Reveal delay={i * 40}>
               <div className="flex gap-4 py-3.5 sm:gap-6">
                 <div className="w-[86px] shrink-0 sm:w-[104px]">
-                  <span className="mono block text-[10px] text-faint">{step.n}</span>
-                  <span className="mono mt-0.5 block text-[9.5px] uppercase leading-tight tracking-[0.1em] text-faint">
+                  <span className="mono block text-[12px] text-faint">{step.n}</span>
+                  <span className="mono mt-0.5 block text-[12px] uppercase leading-tight tracking-[0.1em] text-faint">
                     {step.label}
                   </span>
                 </div>

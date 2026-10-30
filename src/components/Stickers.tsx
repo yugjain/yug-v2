@@ -418,6 +418,8 @@ export default function StickerBanner() {
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType !== 'mouse' || !ref.current) return;
+    // Parallax is decoration; skip it entirely for reduced-motion visitors.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const r = ref.current.getBoundingClientRect();
     setP({
       x: ((e.clientX - r.left) / r.width - 0.5) * 2,

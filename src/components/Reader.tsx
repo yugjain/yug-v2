@@ -67,7 +67,7 @@ export default function Reader({ essay, onClose }: { essay: Essay; onClose: () =
             type="button"
             onClick={onClose}
             aria-label="Close paper"
-            className="-mr-1 -mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-full text-muted transition-colors hover:bg-line/60 hover:text-ink"
+            className="-mr-2 -mt-2 grid h-11 w-11 shrink-0 place-items-center rounded-full text-muted transition-colors hover:bg-line/60 hover:text-ink"
           >
             <Close />
           </button>
@@ -82,7 +82,7 @@ export default function Reader({ essay, onClose }: { essay: Essay; onClose: () =
           {essay.tags.map((t) => (
             <li
               key={t}
-              className="rounded-full border border-line px-2.5 py-0.5 text-[10.5px] uppercase tracking-[0.08em] text-faint"
+              className="rounded-full border border-line px-2.5 py-0.5 text-[12px] uppercase tracking-[0.08em] text-faint"
             >
               {t}
             </li>
@@ -97,7 +97,7 @@ export default function Reader({ essay, onClose }: { essay: Essay; onClose: () =
           {essay.sections.map((s, i) => (
             <div key={s.h}>
               <h3 className="text-[13px] font-medium tracking-[-0.01em]">
-                <span className="mono mr-2 text-[10.5px] text-faint">0{i + 1}</span>
+                <span className="mono mr-2 text-[12px] text-faint">0{i + 1}</span>
                 {s.h}
               </h3>
               <p className="mt-1.5 text-[13.5px] leading-[1.75] text-muted">{s.body}</p>
@@ -106,11 +106,11 @@ export default function Reader({ essay, onClose }: { essay: Essay; onClose: () =
         </div>
 
         <div className="mt-7 rounded-xl border border-line bg-line/25 p-4">
-          <p className="mono text-[9.5px] uppercase tracking-[0.16em] text-faint">Operating rule of thumb</p>
+          <p className="mono text-[12px] uppercase tracking-[0.16em] text-faint">Operating rule of thumb</p>
           <p className="mt-1.5 text-[13px] leading-[1.7] text-ink/90">{essay.rule}</p>
         </div>
 
-        <p className="mt-6 text-[11.5px] text-faint">
+        <p className="mt-6 text-[12px] text-faint">
           Written by Yug Jain · Enterprise Client Partner ·{' '}
           <a href="mailto:yugrjain@gmail.com" className="link">
             reply by email

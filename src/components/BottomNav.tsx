@@ -16,7 +16,7 @@ export default function BottomNav() {
           <li key={item.href} className="flex-1">
             <a
               href={item.href}
-              className="mono block rounded-md py-2 text-center text-[10px] uppercase tracking-[0.12em] text-faint transition-colors active:text-ink"
+              className="mono flex min-h-11 items-center justify-center rounded-md px-1 py-2 text-center text-[12px] uppercase tracking-[0.12em] text-faint transition-colors active:text-ink"
             >
               {item.label}
             </a>
@@ -25,7 +25,7 @@ export default function BottomNav() {
         <li className="flex-1">
           <a
             href="#top"
-            className="mono block rounded-md py-2 text-center text-[10px] uppercase tracking-[0.12em] text-faint transition-colors active:text-ink"
+            className="mono flex min-h-11 items-center justify-center rounded-md px-1 py-2 text-center text-[12px] uppercase tracking-[0.12em] text-faint transition-colors active:text-ink"
           >
             Top ↑
           </a>

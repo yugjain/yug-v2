@@ -23,13 +23,13 @@ export default function Writing() {
               aria-label={`Open working paper ${paper.n}: ${paper.title}`}
             >
               <span className="flex w-full flex-col justify-between pl-1.5 text-left">
-                <span className="mono text-[9px] uppercase tracking-[0.12em] text-faint">
+                <span className="mono text-[12px] uppercase tracking-[0.12em] text-faint">
                   Paper {paper.n}
                 </span>
-                <span className="text-[11.5px] font-medium leading-[1.3] text-ink">
+                <span className="text-[12px] font-medium leading-[1.3] text-ink">
                   {paper.short}
                 </span>
-                <span className="mono text-[9px] uppercase tracking-[0.08em] text-faint">
+                <span className="mono text-[12px] uppercase tracking-[0.08em] text-faint">
                   {paper.read}
                 </span>
               </span>

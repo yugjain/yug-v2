@@ -22,7 +22,7 @@ export default function Section({
           <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-accent" />
           {title ?? eyebrow}
         </h2>
-        <span className="mono hidden shrink-0 text-[9px] uppercase tracking-[0.14em] text-faint sm:block">
+        <span className="mono hidden shrink-0 text-[12px] uppercase tracking-[0.14em] text-faint sm:block">
           {eyebrow}
           {hint ? ` · ${hint}` : ''}
         </span>

@@ -55,12 +55,12 @@ export default function Hero() {
           Hey, I’m Yug<span className="text-accent">.</span>
         </h1>
       </div>
-      <p className="mono mt-2 text-[10.5px] uppercase tracking-[0.14em] text-faint">
+      <p className="mono mt-2 text-[12px] uppercase tracking-[0.14em] text-faint">
         {profile.role} · {profile.roleLine}
       </p>
       {pending.seeking && (
         <p className="mt-2 max-w-[54ch] text-[13px] leading-snug text-muted">
-          <span className="mono text-[11px] uppercase tracking-[0.12em] text-faint">Seeking</span>{' '}
+          <span className="mono text-[12px] uppercase tracking-[0.12em] text-faint">Seeking</span>{' '}
           {pending.seeking}
         </p>
       )}
@@ -79,10 +79,10 @@ export default function Hero() {
       >
         {facts.map((f) => (
           <div key={f.label} className="min-w-0">
-            <dt className="mono text-[11.5px] font-medium leading-tight tracking-[-0.01em] text-ink">
+            <dt className="mono text-[12px] font-medium leading-tight tracking-[-0.01em] text-ink">
               {f.value}
             </dt>
-            <dd className="mt-0.5 text-[9px] uppercase leading-tight tracking-[0.1em] text-faint">
+            <dd className="mt-0.5 text-[12px] uppercase leading-tight tracking-[0.1em] text-faint">
               {f.label}
             </dd>
           </div>
@@ -96,7 +96,7 @@ export default function Hero() {
             href={profile.resume}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[13px] text-ink transition-colors hover:border-ink/40 hover:bg-line/40"
+            className="inline-flex min-h-11 items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[13px] text-ink transition-colors hover:border-ink/40 hover:bg-line/40"
           >
             <FileIcon className="h-3.5 w-3.5" />
             Résumé
@@ -105,7 +105,7 @@ export default function Hero() {
           <button
             type="button"
             aria-disabled="true"
-            className="inline-flex cursor-default items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[13px] text-ink select-none"
+            className="inline-flex min-h-11 cursor-default items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[13px] text-ink select-none"
           >
             <FileIcon className="h-3.5 w-3.5" />
             Résumé
@@ -115,7 +115,7 @@ export default function Hero() {
           href={profile.linkedin}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 px-1.5 py-2 text-[13px] text-muted transition-colors hover:text-ink"
+          className="inline-flex min-h-11 items-center gap-2 px-1.5 py-2 text-[13px] text-muted transition-colors hover:text-ink"
         >
           <LinkedIn className="h-3.5 w-3.5" />
           LinkedIn
@@ -127,21 +127,21 @@ export default function Hero() {
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           {profile.location} · <span className="mono">{time} IST</span>
         </span>
-        <a href={`mailto:${profile.email}`} className="group inline-flex items-center gap-1 text-ink">
+        <a href={`mailto:${profile.email}`} className="group inline-flex min-h-11 items-center gap-1 text-ink">
           <span className="link">Say hello</span>
           <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </a>
       </div>
 
       {pending.workAuth && (
-        <p className="mono mt-2.5 text-[11.5px] leading-snug text-muted">{pending.workAuth}</p>
+        <p className="mono mt-2.5 text-[12px] leading-snug text-muted">{pending.workAuth}</p>
       )}
 
       <ul className="mt-3 flex flex-wrap gap-1.5">
         {profile.status.map((s) => (
           <li
             key={s}
-            className="mono rounded-full border border-dashed border-line px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] text-faint"
+            className="mono rounded-full border border-dashed border-line px-2.5 py-1 text-[12px] uppercase tracking-[0.08em] text-faint"
           >
             {s}
           </li>

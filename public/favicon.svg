@@ -1,14 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#fbfbf8" />
-  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#12120f" stroke-width="2" />
+  <rect width="64" height="64" rx="14" fill="#12120f" />
   <text
-    x="8"
+    x="32"
     y="43"
-    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
-    font-size="32"
+    text-anchor="middle"
+    font-family="'Times New Roman', Times, serif"
+    font-size="48"
     font-weight="700"
     letter-spacing="-2"
-    fill="#12120f"
+    fill="#fbfbf8"
   >yj</text>
-  <circle cx="47" cy="41" r="5" fill="#a3e635" stroke="#12120f" stroke-width="1.6" />
 </svg>

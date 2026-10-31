@@ -5,8 +5,10 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    # Weekly refresh of the public GitHub data that feeds the Lab.
-    - cron: '0 6 * * 1'
+    # GitHub fires no event when a topic is added to a repo, so the Lab is
+    # polled. Every three hours is frequent enough for "publish a repo, walk
+    # away" without turning into deploy noise.
+    - cron: '17 */3 * * *'
 
 permissions:
   contents: write
@@ -20,6 +22,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.gate.outputs.deploy }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,29 +39,42 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run lab:refresh
 
+      - name: Did the Lab change?
+        id: lab
+        run: node scripts/lab-changed.mjs
+
       # Keep the last-good snapshot in the repo. [skip ci] prevents this commit
       # from triggering a second deploy.
       - name: Commit refreshed Lab snapshot
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/main' && steps.lab.outputs.changed == 'true'
         run: |
-          if ! git diff --quiet -- content/lab-snapshot.json; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add content/lab-snapshot.json
-            git commit -m "chore: refresh lab snapshot [skip ci]"
-            git push
-          else
-            echo "Lab snapshot unchanged"
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/lab-snapshot.json
+          git commit -m "chore: refresh lab snapshot [skip ci]"
+          git push
 
-      - run: npm run build
+      # Pushes and manual runs always build. A scheduled run builds only when a
+      # project actually changed, so the poll is a no-op the rest of the time.
+      - name: Build
+        if: github.event_name != 'schedule' || steps.lab.outputs.changed == 'true'
+        run: npm run build
+
       - uses: actions/configure-pages@v5
+        if: github.event_name != 'schedule' || steps.lab.outputs.changed == 'true'
       - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'schedule' || steps.lab.outputs.changed == 'true'
         with:
           path: dist
 
+      - name: Mark deployable
+        id: gate
+        if: github.event_name != 'schedule' || steps.lab.outputs.changed == 'true'
+        run: echo "deploy=true" >> "$GITHUB_OUTPUT"
+
   deploy:
     needs: build
+    if: needs.build.outputs.deploy == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

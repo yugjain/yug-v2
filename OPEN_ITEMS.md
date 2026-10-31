@@ -34,9 +34,8 @@ export const pending = {
 
 ## 2. Lab projects
 
-The Lab is opt-in and currently ships five projects. A repo appears only when it is public, not
-a fork, carries the `showcase` topic, has a README, and has a description or a `oneLiner`
-override.
+The Lab is opt-in and currently ships six projects. Publishing is a GitHub-only action: no file
+edit, no message to me.
 
 | Repo | Status | Featured |
 |---|---|---|
@@ -45,38 +44,50 @@ override.
 | `RecapReel` | `prototype` | yes |
 | `mac-sentinel` | `experiment` | no |
 | `macos-downloads-organizer` | `experiment` | no |
+| `tv-lobotomy` | `prototype` | no |
 
-`/lab/` lists all five; the home section shows the three featured cards and "2 more experiments
-in the Lab". To pull a project, remove its `showcase` topic; to add one, tag it and run
-`npm run lab:refresh && npm run build`. Removing every topic restores the empty state on `/lab/`
-and hides the home section, which is the correct zero-project state, not a bug.
+### Publishing a repo
 
-To add a project:
+1. Fill in the **description** in the repo's About box. It becomes the card one-liner.
+2. Keep a **README** of 200+ characters.
+3. Add the **`showcase`** topic.
+4. Optional, also as topics: `status-live`, `status-prototype`, `status-experiment`,
+   `status-archived`, and `featured` for the home strip (the three newest win).
 
-1. On GitHub, add the `showcase` topic. I did not add it to any repo; that switch is yours.
-2. Add a description, or a `oneLiner` in [`content/lab-overrides.json`](content/lab-overrides.json).
-3. Keep the README at 200+ characters so the build does not warn.
-4. Add only the override fields you actually want:
+The site refreshes every three hours (`cron: 17 */3 * * *`), commits the snapshot only when the
+project list changes, and deploys only on that run. Worst case three hours; *Actions → Deploy to
+GitHub Pages → Run workflow* takes about a minute. Removing `showcase` removes the project the same
+way, and removing every topic restores the empty state on `/lab/` and hides the home section.
+
+Missing data renders nothing: no chip without a `status-*` topic, no Demo button without a Homepage
+URL, no image without a screenshot. Repos without a README or a description are skipped with a
+warning.
+
+### Overrides, when you want them
+
+`content/lab-overrides.json` still wins over topics and is where a hand-written one-liner or a
+screenshot goes. It is a preference, not a requirement.
 
 | Field | Value | Notes |
 |---|---|---|
-| `status` | `live` / `prototype` / `experiment` / `archived` | Needed for the status chip; a missing status warns |
-| `featured` | `true` | Home shows the newest 3; more than 3 warns |
-| `demoUrl` | absolute URL | `npm run check:links` fails on 404/410 |
-| `screenshot` | absolute URL or `/yug-v2/...` | 16:10 frame, lazy-loaded, explicit dimensions |
-| `oneLiner` | string | Used when the repo has no description |
+| `status` | `live` / `prototype` / `experiment` / `archived` | Beats the `status-*` topic |
+| `featured` | `true` / `false` | Beats the `featured` topic |
+| `oneLiner` | string | Used instead of the repo description |
+| `demoUrl` | absolute URL | Treated as curated: 404/410 fails the build |
+| `screenshot` | absolute URL or `/yug-v2/...` | 16:10 frame, lazy-loaded |
 | `hidden` | `true` | Removes it from both home and `/lab/` |
 | `includeArchived` | `true` | Required before an archived repo is included |
 | `shippedDate` | ISO date | Only when the first release date needs to be exact |
 
-Missing project data renders nothing: no status chip without a status, no Demo link without a
-`demoUrl`, no image without a `screenshot`. Repos without a README or readable one-liner are
-skipped with a warning.
+### Link rules
 
-`content/lab-snapshot.json` is the committed last-good public API result.
-`npm run lab:refresh` updates it; CI refreshes on every push and weekly, then commits the
-snapshot with `[skip ci]`. If the API is unavailable or rate-limited, the build uses the snapshot
-and logs a warning rather than producing an empty Lab.
+- A `demoUrl` typed into the override is a deliberate claim: 404/410 fails the build.
+- A Homepage URL scraped from the repo is published unattended: 404/410 drops the Demo button,
+  warns in the log and the run summary, and the card shows Repo only.
+- Timeouts, 403 bot walls and 5xx are warnings, never failures.
+
+`content/lab-snapshot.json` is the committed last-good public API result; `npm run lab:refresh`
+updates it. If the API is unavailable or rate-limited, the build falls back to that snapshot.
 
 **Still needed from you:** nothing on the project side. The Lab intro sentence and the Whiteboard
 link above are the only Lab-adjacent slots left.

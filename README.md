@@ -25,8 +25,8 @@ npm run preview
 `npm run dev` and `npm run build` first generate the Lab data from
 `content/lab-snapshot.json` and `content/lab-overrides.json`. Run
 `npm run lab:refresh` to update the snapshot from the public GitHub API; the deploy
-workflow also does this weekly. No token is needed locally, and none is shipped to
-the browser.
+workflow also does this every three hours. No token is needed locally, and none is
+shipped to the browser.
 
 The production build is served from `/yug-v2/`, so `base` is set in `vite.config.ts`. Any new asset
 path must go through `import.meta.env.BASE_URL` (exported as `BASE` in `src/content.ts`).
@@ -48,25 +48,41 @@ src/
     SideProjects      home Lab strip
     Closing · Elsewhere · Footer · Section · Reveal · Marginalia · Lamp · Icons
 content/
-  lab-overrides.json  status, featured, demo URL, screenshot, one-liner
+  lab-overrides.json  optional per-project metadata (beats topics)
   lab-snapshot.json   committed last-good public GitHub data
 lab/index.html        second Vite entry, prerendered to dist/lab/index.html
-scripts/lab.mjs       public GitHub fetch + override merge + generated data
-scripts/check-links.mjs  fails on 404/410 demo URLs
+scripts/lab.mjs       public GitHub fetch + topic/override merge + generated data
+scripts/lab-write.mjs single writer for src/generated/lab.*
+scripts/lab-changed.mjs  did the poll actually change anything?
+scripts/check-links.mjs  curated 404s fail; scraped 404s drop the link
 ```
 
 ## Editing content
 
 Everything a recruiter reads lives in `src/content.ts`. Nothing else needs touching to update a
-number, a role, a dossier or an essay. Lab projects are different: they come from public GitHub
-repos tagged `showcase`, with optional metadata in `content/lab-overrides.json`. See
-[`OPEN_ITEMS.md`](OPEN_ITEMS.md) for the field list and the five projects currently shipped.
+number, a role, a dossier or an essay.
+
+## Publishing a Lab project
+
+The Lab is driven by GitHub, not by this repo. To publish a project:
+
+1. Fill in the repo's **description** — it becomes the card one-liner.
+2. Keep a **README** of 200+ characters.
+3. Add the **`showcase`** topic.
+4. Optional topics: `status-live`, `status-prototype`, `status-experiment`, `status-archived`, and
+   `featured` for the home strip (the three newest win).
+
+A workflow poll runs every three hours, so it appears within three hours without touching this
+repo. For an immediate refresh, run **Actions → Deploy to GitHub Pages → Run workflow**.
+
+`content/lab-overrides.json` is optional and wins over topics when you want a hand-written
+one-liner, a screenshot, or a specific demo URL. See [`OPEN_ITEMS.md`](OPEN_ITEMS.md) for fields.
 
 ## Deploy
 
 Push to `main`. The workflow in `.github/workflows/deploy.yml` refreshes the public GitHub Lab
-data, builds both pages and publishes to GitHub Pages. It also runs weekly and commits the
-refreshed snapshot with `[skip ci]`.
+data, builds both pages and publishes to GitHub Pages. The three-hourly scheduled run commits the
+refreshed snapshot with `[skip ci]` and deploys only when the project list actually changed.
 
 First-time repo setup:
 

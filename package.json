@@ -4,8 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr --emptyOutDir && node scripts/prerender.mjs && node scripts/check-placeholders.mjs",
+    "dev": "node scripts/lab.mjs && vite",
+    "build": "node scripts/lab.mjs && node scripts/check-links.mjs && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr --emptyOutDir && node scripts/prerender.mjs && node scripts/check-placeholders.mjs",
+    "lab:build": "node scripts/lab.mjs",
+    "lab:refresh": "node scripts/lab.mjs --refresh",
+    "check:links": "node scripts/check-links.mjs",
     "check:placeholders": "node scripts/check-placeholders.mjs",
     "lint": "oxlint",
     "preview": "vite preview"

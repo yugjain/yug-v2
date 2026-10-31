@@ -1,3 +1,4 @@
+import { pending } from '../claims';
 import { profile } from '../content';
 
 function DeskScene() {
@@ -42,6 +43,31 @@ export default function Footer() {
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center transition-colors hover:text-ink">
             LinkedIn
           </a>
+          <a href={profile.github} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center transition-colors hover:text-ink">
+            GitHub
+          </a>
+          {profile.resumeEnabled ? (
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center transition-colors hover:text-ink"
+            >
+              Résumé
+            </a>
+          ) : (
+            <span className="inline-flex min-h-11 items-center select-none">Résumé · on request</span>
+          )}
+          {pending.whiteboard ? (
+            <a
+              href={pending.whiteboard.url}
+              target={pending.whiteboard.url.startsWith('http') ? '_blank' : undefined}
+              rel={pending.whiteboard.url.startsWith('http') ? 'noreferrer' : undefined}
+              className="inline-flex min-h-11 items-center transition-colors hover:text-ink"
+            >
+              {pending.whiteboard.label}
+            </a>
+          ) : null}
           <a href="#top" className="inline-flex min-h-11 items-center transition-colors hover:text-ink">
             Back to top ↑
           </a>

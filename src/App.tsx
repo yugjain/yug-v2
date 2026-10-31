@@ -11,6 +11,7 @@ import Proof from './components/Proof';
 import TopBar from './components/TopBar';
 import Work from './components/Work';
 import Writing from './components/Writing';
+import SideProjects from './components/SideProjects';
 
 /* Two heavy, below-the-fold modules stay out of the first chunk. Defer keeps
    them unmounted until they are close to the viewport. */
@@ -75,6 +76,9 @@ export default function App() {
             <Defer id="ai" minHeight={860}>
               <Synthesizer />
             </Defer>
+          </Suspense>
+          <SideProjects />
+          <Suspense fallback={null}>
             <Defer id="play" minHeight={1050}>
               <OffClock />
             </Defer>

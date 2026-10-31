@@ -16,6 +16,8 @@ and the build fails if it ever appears in `dist/` (`scripts/check-placeholders.m
 | 1 | `{{VERIFY: net revenue retention % if I want it shown}}` | `pending.nrr` | Hero fact row, after gross retention | Adds a 6th fact and switches the row to six columns |
 | 2 | `{{VERIFY: target role, e.g. Client Partner / Enterprise Account Director at Series B-D SaaS or a Salesforce SI}}` | `pending.seeking` | Under the hero tagline | Adds a `Seeking:` line; nothing renders while empty |
 | 3 | `{{VERIFY: sponsorship status and/or overlap hours}}` | `pending.workAuth` | Beside the status chips (`Open to US · UK · Ireland`) | Adds one chip; the protected chips are untouched |
+| 4 | `{{VERIFY: one-sentence framing of the Lab}}` | `pending.labIntro` | `/lab/` header, under the title | Adds one intro sentence; the Lab still works without it |
+| 5 | `{{VERIFY: whiteboard URL and what it is}}` | `pending.whiteboard = { url, label }` | Footer links row | Adds the Whiteboard link; both fields are required |
 
 Example:
 
@@ -25,19 +27,58 @@ export const pending = {
   nrr: '112%',
   seeking: 'Client Partner at a Series B–D SaaS company',
   workAuth: 'Requires sponsorship in the US',
+  labIntro: 'One sentence about why the Lab exists.',
+  whiteboard: { url: 'https://example.com/whiteboard', label: 'Whiteboard' },
 };
 ```
 
-## 2. Testimonial attribution
+## 2. Lab projects
+
+The Lab is opt-in. A repo appears only when it is public, not a fork, carries the `showcase`
+topic, has a README, and has a description or a `oneLiner` override. **No repo currently has
+`showcase`**, so the home section is absent and `/lab/` shows its empty state. That is the
+correct zero-project state, not a bug.
+
+To add a project:
+
+1. On GitHub, add the `showcase` topic. I did not add it to any repo; that switch is yours.
+2. Add a description, or a `oneLiner` in [`content/lab-overrides.json`](content/lab-overrides.json).
+3. Keep the README at 200+ characters so the build does not warn.
+4. Add only the override fields you actually want:
+
+| Field | Value | Notes |
+|---|---|---|
+| `status` | `live` / `prototype` / `experiment` / `archived` | Needed for the status chip; a missing status warns |
+| `featured` | `true` | Home shows the newest 3; more than 3 warns |
+| `demoUrl` | absolute URL | `npm run check:links` fails on 404/410 |
+| `screenshot` | absolute URL or `/yug-v2/...` | 16:10 frame, lazy-loaded, explicit dimensions |
+| `oneLiner` | string | Used when the repo has no description |
+| `hidden` | `true` | Removes it from both home and `/lab/` |
+| `includeArchived` | `true` | Required before an archived repo is included |
+| `shippedDate` | ISO date | Only when the first release date needs to be exact |
+
+Missing project data renders nothing: no status chip without a status, no Demo link without a
+`demoUrl`, no image without a `screenshot`. Repos without a README or readable one-liner are
+skipped with a warning.
+
+`content/lab-snapshot.json` is the committed last-good public API result.
+`npm run lab:refresh` updates it; CI refreshes on every push and weekly, then commits the
+snapshot with `[skip ci]`. If the API is unavailable or rate-limited, the build uses the snapshot
+and logs a warning rather than producing an empty Lab.
+
+**Still needed from you:** the real projects (add `showcase`), a status for each, and optionally
+demo URLs, screenshots, and one-liners.
+
+## 3. Testimonial attribution
 
 Three quotes are on the page with roles and companies but **no names**. I did not invent any. Each
 figure keeps its quote and its descriptor; a name line appears only when you add one.
 
 | # | Quote starts | Field to fill | Marker |
 |---|---|---|---|
-| 4 | "Yug holds the room with enterprise VPs…" | `testimonials[0].name` + consent | `{{VERIFY: who said this, and do they consent to being named}}` |
-| 5 | "He replaced reactive check-ins with telemetry-backed QBRs…" | `testimonials[1].name` + consent | `{{VERIFY: who said this, and do they consent to being named}}` |
-| 6 | "Most CSMs manage tickets; Yug builds systems…" | `testimonials[2].name` + consent | `{{VERIFY: who said this, and do they consent to being named}}` |
+| 6 | "Yug holds the room with enterprise VPs…" | `testimonials[0].name` + consent | `{{VERIFY: who said this, and do they consent to being named}}` |
+| 7 | "He replaced reactive check-ins with telemetry-backed QBRs…" | `testimonials[1].name` + consent | `{{VERIFY: who said this, and do they consent to being named}}` |
+| 8 | "Most CSMs manage tickets; Yug builds systems…" | `testimonials[2].name` + consent | `{{VERIFY: who said this, and do they consent to being named}}` |
 
 Consent matters for all three: a named executive quote on a public page is a claim about a
 third party, not just about you. If consent is unclear, leaving the name empty is the correct
@@ -46,7 +87,7 @@ state — the quote still works anonymously.
 > Note: quote 3 contains "50% faster onboarding" verbatim. It is the one place the de-duplicated
 > claim still repeats, because editing a testimonial would falsify it.
 
-## 3. Decisions I made on your behalf
+## 4. Decisions I made on your behalf
 
 | Decision | What I did | Why |
 |---|---|---|
@@ -56,7 +97,7 @@ state — the quote still works anonymously.
 | De-duplication | Canonical homes: **50% → Proof metric**, **25+ → Work row 03 impact**. Removed from role impact/stat, testimonial badge, Elsewhere bio | Strongest visible placement for each. Full diff in the Phase 2 commit |
 | "80%+" ordering | Retention now sits second with `multi-year` attached | A bare 80% invites "80% of what?" before the reader reaches context |
 
-## 4. Still yours to answer (not blocking)
+## 5. Still yours to answer (not blocking)
 
 These are in [`CLAIMS.md`](CLAIMS.md) with locations; none are rendered as placeholders because
 they are existing prose, not empty slots.
@@ -68,7 +109,7 @@ they are existing prose, not empty slots.
 5. Should `80%+` retention carry a period or a calculation note?
 6. Are the advisory outcome figures okay to be anonymous (no dates, no metrics beyond −65%)?
 
-## 5. Follow-ups after this pass
+## 6. Follow-ups after this pass
 
 - Pages is configured to deploy from **GitHub Actions** (`build_type=workflow`). Keep it there:
   the repo root is source, so a branch-based Pages build would serve `index.html` with
@@ -88,4 +129,16 @@ they are existing prose, not empty slots.
 - Fonts are self-hosted latin subsets in `src/assets/fonts/` so the critical path has no
   `fonts.googleapis.com` request. If you add non-latin copy, add the matching subset or the
   glyphs will fall back to the system font.
+- `/lab/` is a second Vite entry (`lab/index.html` → `src/lab-main.tsx`). `npm run build`
+  prerenders both pages; adding a third page means another entry in `vite.config.ts` and another
+  renderer in `src/entry-server.tsx` / `scripts/prerender.mjs`.
+- `src/generated/lab.ts` and `.json` are gitignored. `npm run dev` and `npm run build` regenerate
+  them from `content/lab-snapshot.json` + `content/lab-overrides.json`; run `npm run lab:refresh`
+  to update the snapshot from the public API.
+- The 200-project mock run scored 98 performance / 100 accessibility / 100 best practices / 100
+  SEO in both themes on mobile Lighthouse, with CLS 0. The mock fixture was local-only and is not
+  committed.
+- `npm run check:links` only checks project demo/homepage URLs. It fails on 404/410 and warns on
+  timeouts, bot walls and other error responses. It needs the generated Lab data, so run
+  `npm run lab:build` first (the build script does both in order).
 - Lighthouse is not a dependency; it was run with `npx lighthouse@12` and is not shipped.

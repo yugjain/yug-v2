@@ -17,6 +17,10 @@ export const pending = {
   seeking: null as string | null,
   /** Sponsorship status and/or overlap hours, rendered beside the status chips. */
   workAuth: null as string | null,
+  /** One-sentence framing of the Lab, rendered under the page title. */
+  labIntro: null as string | null,
+  /** Whiteboard destination. Both fields are required before the footer link appears. */
+  whiteboard: null as { url: string; label: string } | null,
 };
 
 export type Attribution = {

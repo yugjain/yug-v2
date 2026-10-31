@@ -200,6 +200,74 @@ html.dark .string:focus-visible {
   border-radius: var(--radius);
 }
 
+/* ------------------------------------------------------------ lab */
+
+.lab-control {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+select.lab-control {
+  padding-right: 28px;
+}
+
+.lab-control::placeholder {
+  color: var(--faint);
+}
+
+.lab-checkbox {
+  accent-color: var(--accent);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--faint);
+  flex: none;
+}
+
+.status-live {
+  background: #15803d;
+}
+
+.status-prototype {
+  background: #1d4ed8;
+}
+
+.status-experiment {
+  background: #b45309;
+}
+
+.status-archived {
+  background: #6b7280;
+}
+
+html.dark .status-live {
+  background: #4ade80;
+}
+
+html.dark .status-prototype {
+  background: #93c5fd;
+}
+
+html.dark .status-experiment {
+  background: #fbbf24;
+}
+
+html.dark .status-archived {
+  background: #9ca3af;
+}
+
 /* ------------------------------------------------------------ typography */
 
 .eyebrow {

@@ -7,6 +7,7 @@ export const profile = {
   location: 'Mumbai, India',
   email: 'yugrjain@gmail.com',
   linkedin: 'https://www.linkedin.com/in/yugjain',
+  github: 'https://github.com/yugjain',
   calendar: 'https://calendar.app.google/3yNWBXCxBVos8ufr8',
   resume: `${BASE}Yug-Jain-Executive-Resume.pdf`,
   /** Set true to re-enable the résumé download links. */

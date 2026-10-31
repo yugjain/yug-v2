@@ -11,16 +11,22 @@ bento, disposable instead of stacked.
 - Vite + React 19 + TypeScript
 - Tailwind CSS v4 (tokens in `src/index.css`)
 - No router, no animation library, no analytics SDK
-- DM Sans / Geist Mono / Instrument Serif via Google Fonts
+- Self-hosted DM Sans / Geist Mono / Instrument Serif / Caveat subsets
 
 ## Run locally
 
 ```bash
 npm install
 npm run dev      # http://localhost:5173/yug-v2/
-npm run build    # → dist/
+npm run build    # → dist/ (home + /lab/)
 npm run preview
 ```
+
+`npm run dev` and `npm run build` first generate the Lab data from
+`content/lab-snapshot.json` and `content/lab-overrides.json`. Run
+`npm run lab:refresh` to update the snapshot from the public GitHub API; the deploy
+workflow also does this weekly. No token is needed locally, and none is shipped to
+the browser.
 
 The production build is served from `/yug-v2/`, so `base` is set in `vite.config.ts`. Any new asset
 path must go through `import.meta.env.BASE_URL` (exported as `BASE` in `src/content.ts`).
@@ -31,22 +37,36 @@ path must go through `import.meta.env.BASE_URL` (exported as `BASE` in `src/cont
 src/
   content.ts          all copy, roles, dossiers, essays, play data
   useTheme.ts         light/dark with localStorage + system default
-  App.tsx             page order
+  App.tsx             home page order
+  LabApp.tsx          /lab/ search, filters and incremental list
+  lab/                project types, card, derived data
+  entry-server.tsx    prerenderers for both pages
   components/
     TopBar · BottomNav · Hero · Stickers · Work · HowIWork · Advisory
     Proof · Writing · Reader · Synthesizer
     OffClock          silent fingerstyle sequencer, draggable ball, draggable press
+    SideProjects      home Lab strip
     Closing · Elsewhere · Footer · Section · Reveal · Marginalia · Lamp · Icons
+content/
+  lab-overrides.json  status, featured, demo URL, screenshot, one-liner
+  lab-snapshot.json   committed last-good public GitHub data
+lab/index.html        second Vite entry, prerendered to dist/lab/index.html
+scripts/lab.mjs       public GitHub fetch + override merge + generated data
+scripts/check-links.mjs  fails on 404/410 demo URLs
 ```
 
 ## Editing content
 
 Everything a recruiter reads lives in `src/content.ts`. Nothing else needs touching to update a
-number, a role, a dossier or an essay.
+number, a role, a dossier or an essay. Lab projects are different: they come from public GitHub
+repos tagged `showcase`, with optional metadata in `content/lab-overrides.json`. See
+[`OPEN_ITEMS.md`](OPEN_ITEMS.md) for the field list and the current empty state.
 
 ## Deploy
 
-Push to `main`. The workflow in `.github/workflows/deploy.yml` builds and publishes to GitHub Pages.
+Push to `main`. The workflow in `.github/workflows/deploy.yml` refreshes the public GitHub Lab
+data, builds both pages and publishes to GitHub Pages. It also runs weekly and commits the
+refreshed snapshot with `[skip ci]`.
 
 First-time repo setup:
 

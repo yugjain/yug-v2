@@ -25,6 +25,11 @@
       "status": "experiment",
       "featured": false,
       "oneLiner": "A zero-dependency launchd job that keeps ~/Downloads sorted, without overwriting or moving in-progress files."
+    },
+    "tv-lobotomy": {
+      "status": "prototype",
+      "featured": false,
+      "oneLiner": "A quiet Android TV home screen: one app list, a clock, nothing else."
     }
   }
 }

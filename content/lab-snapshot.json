@@ -1,7 +1,28 @@
 {
-  "fetchedAt": "2026-10-31T11:00:01.381Z",
+  "fetchedAt": "2026-10-31T15:45:13.744Z",
   "source": "api",
   "projects": [
+    {
+      "name": "tv-lobotomy",
+      "fullName": "yugjain/tv-lobotomy",
+      "description": "A quiet Android TV home screen: one app list, a clock, nothing else. Fork of CleanYourTV with a CleanFrame-style list layout.",
+      "topics": [
+        "android-tv",
+        "cleanyourtv",
+        "google-tv",
+        "launcher",
+        "showcase"
+      ],
+      "language": "Java",
+      "htmlUrl": "https://github.com/yugjain/tv-lobotomy",
+      "homepage": null,
+      "createdAt": "2026-10-31T15:31:56Z",
+      "firstReleaseAt": null,
+      "readmeLength": 10967,
+      "archived": false,
+      "fork": false,
+      "private": false
+    },
     {
       "name": "macos-downloads-organizer",
       "fullName": "yugjain/macos-downloads-organizer",

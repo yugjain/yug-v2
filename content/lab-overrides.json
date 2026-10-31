@@ -24,7 +24,7 @@
     "macos-downloads-organizer": {
       "status": "experiment",
       "featured": false,
-      "oneLiner": "A zero-dependency launchd job that keeps `~/Downloads` sorted, without overwriting or moving in-progress files."
+      "oneLiner": "A zero-dependency launchd job that keeps ~/Downloads sorted, without overwriting or moving in-progress files."
     }
   }
 }

@@ -60,7 +60,7 @@ scripts/check-links.mjs  fails on 404/410 demo URLs
 Everything a recruiter reads lives in `src/content.ts`. Nothing else needs touching to update a
 number, a role, a dossier or an essay. Lab projects are different: they come from public GitHub
 repos tagged `showcase`, with optional metadata in `content/lab-overrides.json`. See
-[`OPEN_ITEMS.md`](OPEN_ITEMS.md) for the field list and the current empty state.
+[`OPEN_ITEMS.md`](OPEN_ITEMS.md) for the field list and the five projects currently shipped.
 
 ## Deploy
 

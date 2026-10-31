@@ -34,12 +34,9 @@ export const pending = {
 
 ## 2. Lab projects
 
-The Lab is opt-in. A repo appears only when it is public, not a fork, carries the `showcase`
-topic, has a README, and has a description or a `oneLiner` override.
-
-**Five projects are ready but gated on the topic.** Their overrides (status, featured flag,
-one-liner, AIfeed demo URL) are already in `content/lab-overrides.json`, and all five have a
-README over 200 characters:
+The Lab is opt-in and currently ships five projects. A repo appears only when it is public, not
+a fork, carries the `showcase` topic, has a README, and has a description or a `oneLiner`
+override.
 
 | Repo | Status | Featured |
 |---|---|---|
@@ -49,10 +46,10 @@ README over 200 characters:
 | `mac-sentinel` | `experiment` | no |
 | `macos-downloads-organizer` | `experiment` | no |
 
-**None of them has `showcase` yet**, so the pipeline still excludes all five: the home section is
-absent and `/lab/` shows its empty state. That is the correct zero-project state, not a bug. Add
-the topic to those five repos, then run `npm run lab:refresh && npm run build`. No override edits
-are needed.
+`/lab/` lists all five; the home section shows the three featured cards and "2 more experiments
+in the Lab". To pull a project, remove its `showcase` topic; to add one, tag it and run
+`npm run lab:refresh && npm run build`. Removing every topic restores the empty state on `/lab/`
+and hides the home section, which is the correct zero-project state, not a bug.
 
 To add a project:
 
@@ -81,7 +78,8 @@ skipped with a warning.
 snapshot with `[skip ci]`. If the API is unavailable or rate-limited, the build uses the snapshot
 and logs a warning rather than producing an empty Lab.
 
-**Still needed from you:** the `showcase` topic on the five repos above. Everything else is set.
+**Still needed from you:** nothing on the project side. The Lab intro sentence and the Whiteboard
+link above are the only Lab-adjacent slots left.
 
 ## 3. Testimonial attribution
 

@@ -1,5 +1,91 @@
 {
-  "fetchedAt": "2026-10-31T10:39:50.410Z",
+  "fetchedAt": "2026-10-31T10:48:05.004Z",
   "source": "api",
-  "projects": []
+  "projects": [
+    {
+      "name": "macos-downloads-organizer",
+      "fullName": "yugjain/macos-downloads-organizer",
+      "description": null,
+      "topics": [
+        "showcase"
+      ],
+      "language": "Python",
+      "htmlUrl": "https://github.com/yugjain/macos-downloads-organizer",
+      "homepage": null,
+      "createdAt": "2026-10-25T19:45:22Z",
+      "firstReleaseAt": null,
+      "readmeLength": 4668,
+      "archived": false,
+      "fork": false,
+      "private": false
+    },
+    {
+      "name": "mac-sentinel",
+      "fullName": "yugjain/mac-sentinel",
+      "description": "Lightweight macOS Performance Diagnostics, Storage Guard & Interactive Review Suite",
+      "topics": [
+        "showcase"
+      ],
+      "language": "Python",
+      "htmlUrl": "https://github.com/yugjain/mac-sentinel",
+      "homepage": null,
+      "createdAt": "2026-10-25T19:55:23Z",
+      "firstReleaseAt": null,
+      "readmeLength": 7363,
+      "archived": false,
+      "fork": false,
+      "private": false
+    },
+    {
+      "name": "RecapReel",
+      "fullName": "yugjain/RecapReel",
+      "description": null,
+      "topics": [
+        "showcase"
+      ],
+      "language": "JavaScript",
+      "htmlUrl": "https://github.com/yugjain/RecapReel",
+      "homepage": null,
+      "createdAt": "2026-10-26T13:21:48Z",
+      "firstReleaseAt": null,
+      "readmeLength": 4531,
+      "archived": false,
+      "fork": false,
+      "private": false
+    },
+    {
+      "name": "tidy-tabs",
+      "fullName": "yugjain/tidy-tabs",
+      "description": null,
+      "topics": [
+        "showcase"
+      ],
+      "language": "JavaScript",
+      "htmlUrl": "https://github.com/yugjain/tidy-tabs",
+      "homepage": null,
+      "createdAt": "2026-10-25T14:56:05Z",
+      "firstReleaseAt": null,
+      "readmeLength": 9940,
+      "archived": false,
+      "fork": false,
+      "private": false
+    },
+    {
+      "name": "AIfeed",
+      "fullName": "yugjain/AIfeed",
+      "description": null,
+      "topics": [
+        "showcase"
+      ],
+      "language": "TypeScript",
+      "htmlUrl": "https://github.com/yugjain/AIfeed",
+      "homepage": null,
+      "createdAt": "2026-10-26T08:48:20Z",
+      "firstReleaseAt": null,
+      "readmeLength": 2627,
+      "archived": false,
+      "fork": false,
+      "private": false
+    }
+  ]
 }

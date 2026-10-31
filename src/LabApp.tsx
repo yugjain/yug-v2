@@ -142,7 +142,7 @@ export default function LabApp() {
             <section aria-labelledby="lab-empty" className="px-4 pb-10 sm:px-7">
               <div className="card px-4 py-8 text-center">
                 <h2 id="lab-empty" className="text-[15px] font-semibold text-ink">
-                  No public projects yet.
+                  Nothing in the Lab yet.
                 </h2>
                 <p className="mx-auto mt-1 max-w-[46ch] text-[13px] leading-[1.7] text-muted">
                   When a project is ready, it will show up here with its repo and a link to try

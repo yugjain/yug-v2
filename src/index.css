@@ -480,17 +480,8 @@ input[type='range']::-moz-range-thumb {
 
 /* ---------------------------------------------------------------- utils */
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
+/* .sr-only comes from Tailwind. A local copy here sat outside the utility
+   layer, so it beat focus:not-sr-only and kept the skip link at 1px. */
 
 @media (prefers-reduced-motion: reduce) {
   html {

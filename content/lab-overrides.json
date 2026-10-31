@@ -1,3 +1,30 @@
 {
-  "projects": {}
+  "projects": {
+    "AIfeed": {
+      "status": "live",
+      "featured": true,
+      "oneLiner": "A curated AI dashboard that turns launches, papers and community chatter into practical tools you can use.",
+      "demoUrl": "https://yugjain.github.io/AIfeed/"
+    },
+    "tidy-tabs": {
+      "status": "prototype",
+      "featured": true,
+      "oneLiner": "A Chrome extension that turns tab overload into native tab groups, with audio protection and a one-click tab vault."
+    },
+    "RecapReel": {
+      "status": "prototype",
+      "featured": true,
+      "oneLiner": "A Chrome extension that plays long YouTube videos as AI-picked highlight reels using your own Gemini key."
+    },
+    "mac-sentinel": {
+      "status": "experiment",
+      "featured": false,
+      "oneLiner": "A zero-dependency macOS diagnostics CLI for storage pressure, swap and broken launch agents."
+    },
+    "macos-downloads-organizer": {
+      "status": "experiment",
+      "featured": false,
+      "oneLiner": "A zero-dependency launchd job that keeps `~/Downloads` sorted, without overwriting or moving in-progress files."
+    }
+  }
 }

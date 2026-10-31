@@ -35,9 +35,24 @@ export const pending = {
 ## 2. Lab projects
 
 The Lab is opt-in. A repo appears only when it is public, not a fork, carries the `showcase`
-topic, has a README, and has a description or a `oneLiner` override. **No repo currently has
-`showcase`**, so the home section is absent and `/lab/` shows its empty state. That is the
-correct zero-project state, not a bug.
+topic, has a README, and has a description or a `oneLiner` override.
+
+**Five projects are ready but gated on the topic.** Their overrides (status, featured flag,
+one-liner, AIfeed demo URL) are already in `content/lab-overrides.json`, and all five have a
+README over 200 characters:
+
+| Repo | Status | Featured |
+|---|---|---|
+| `AIfeed` | `live` | yes |
+| `tidy-tabs` | `prototype` | yes |
+| `RecapReel` | `prototype` | yes |
+| `mac-sentinel` | `experiment` | no |
+| `macos-downloads-organizer` | `experiment` | no |
+
+**None of them has `showcase` yet**, so the pipeline still excludes all five: the home section is
+absent and `/lab/` shows its empty state. That is the correct zero-project state, not a bug. Add
+the topic to those five repos, then run `npm run lab:refresh && npm run build`. No override edits
+are needed.
 
 To add a project:
 
@@ -66,8 +81,7 @@ skipped with a warning.
 snapshot with `[skip ci]`. If the API is unavailable or rate-limited, the build uses the snapshot
 and logs a warning rather than producing an empty Lab.
 
-**Still needed from you:** the real projects (add `showcase`), a status for each, and optionally
-demo URLs, screenshots, and one-liners.
+**Still needed from you:** the `showcase` topic on the five repos above. Everything else is set.
 
 ## 3. Testimonial attribution
 

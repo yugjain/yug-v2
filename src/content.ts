@@ -11,7 +11,7 @@ export const profile = {
   calendar: 'https://calendar.app.google/3yNWBXCxBVos8ufr8',
   resume: `${BASE}Yug-Jain-Executive-Resume.pdf`,
   /** Set true to re-enable the résumé download links. */
-  resumeEnabled: false,
+  resumeEnabled: true,
   avatar: `${BASE}yug-avatar.webp`,
   status: ['Pre-sales → delivery → expansion', 'Open to US · UK · Ireland', 'Remote & relocation ready'],
 };

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-31T15:46:07.705Z",
+  "fetchedAt": "2026-11-06T10:47:40.110Z",
   "source": "api",
   "projects": [
     {
@@ -18,7 +18,7 @@
       "homepage": null,
       "createdAt": "2026-10-31T15:31:56Z",
       "firstReleaseAt": null,
-      "readmeLength": 10967,
+      "readmeLength": 10944,
       "archived": false,
       "fork": false,
       "private": false
